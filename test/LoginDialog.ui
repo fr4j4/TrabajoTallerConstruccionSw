@@ -53,14 +53,14 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_6"/>
+      <widget class="QLineEdit" name="LPass"/>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit_5"/>
+      <widget class="QLineEdit" name="LId"/>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="BIngresar">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -90,8 +90,6 @@
     </property>
    </widget>
   </widget>
-  <zorder>groupBox</zorder>
-  <zorder>lineEdit_6</zorder>
  </widget>
  <resources/>
  <connections/>
