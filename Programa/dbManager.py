@@ -1,5 +1,6 @@
 import sqlite3
 import os
+#Codigo para accesar a la base de datos
 class dbManager(object):
 	def __init__(self,dbName):
 		uppath = lambda _path, n: os.sep.join(_path.split(os.sep)[:-n])
