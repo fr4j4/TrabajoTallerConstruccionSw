@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>340</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>0</x>
+      <y>20</y>
       <width>621</width>
       <height>281</height>
      </rect>
@@ -26,21 +26,21 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="Peliculas">
      <attribute name="title">
       <string>Películas</string>
      </attribute>
-     <widget class="QTableView" name="tableView_4">
+     <widget class="QTableView" name="Tabla">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
+        <x>20</x>
+        <y>0</y>
         <width>451</width>
         <height>201</height>
        </rect>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox_2">
+     <widget class="QCheckBox" name="checkBox">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -53,7 +53,7 @@
        <string>Filtrar por Actor?</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -63,7 +63,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_16">
+     <widget class="QLabel" name="Display">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -82,10 +82,10 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_15">
+     <widget class="QPushButton" name="BNuevo">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>220</y>
         <width>121</width>
         <height>23</height>
@@ -95,7 +95,7 @@
        <string>Nueva Película...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_16">
+     <widget class="QPushButton" name="BEliminar">
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -108,7 +108,7 @@
        <string>Eliminar Seleccionado</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_17">
+     <widget class="QPushButton" name="BEditar">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -122,11 +122,11 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="Actores">
      <attribute name="title">
       <string>Actores</string>
      </attribute>
-     <widget class="QTableView" name="tableView_3">
+     <widget class="QTableView" name="Tabla_2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -136,7 +136,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_12">
+     <widget class="QLabel" name="Display_2">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -155,7 +155,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="BEliminar_2">
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -168,7 +168,7 @@
        <string>Eliminar Seleccionado</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="BEditar_2">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -181,17 +181,17 @@
        <string>Editar Seleccionado...</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="comboBox_2">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>140</x>
         <y>20</y>
         <width>121</width>
         <height>22</height>
        </rect>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QCheckBox" name="checkBox_2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -204,7 +204,7 @@
        <string>Filtrar por película?</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_12">
+     <widget class="QPushButton" name="BNuevo_2">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -218,11 +218,11 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_3">
+    <widget class="QWidget" name="Directores">
      <attribute name="title">
       <string>Directores</string>
      </attribute>
-     <widget class="QTableView" name="tableView">
+     <widget class="QTableView" name="Tabla_3">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -232,7 +232,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_13">
+     <widget class="QPushButton" name="BNuevo_3">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -245,7 +245,7 @@
        <string>Nuevo Director...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_14">
+     <widget class="QPushButton" name="BEditar_3">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -258,7 +258,7 @@
        <string>Editar Seleccionado...</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="BEliminar_3">
       <property name="geometry">
        <rect>
         <x>340</x>
@@ -271,7 +271,7 @@
        <string>Eliminar Seleccionado</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="Display_3">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -299,7 +299,7 @@
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
