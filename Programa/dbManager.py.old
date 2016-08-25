@@ -16,46 +16,46 @@ class dbManager(object):
 		self.conn.close()
 		self.connected=False
 
-	def getActors(self):
+	def getActores(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM actors'
+			query='SELECT * FROM actor'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1]
-				tmp['birth']=f[2]
-				tmp['genre']=f[3]
-				tmp['img']=f[4]
+				tmp['nombre']=f[1]
+				tmp['birthday']=f[2]
+				tmp['genero']=f[3]
+				tmp['imagen']=f[4]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
-	def getDirectors(self):
+	def getDirectores(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM directors'
+			query='SELECT * FROM director'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1]
-				tmp['country']=f[2]
-				tmp['birth']=f[3]
-				tmp['death']=f[4]
+				tmp['nombre']=f[1]
+				tmp['pais']=f[2]
+				tmp['fecha_nacimiento']=f[3]
+				tmp['fecha_defuncion']=f[4]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
-	def getCharacters(self):
+	def getElencos(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM characters'
+			query='SELECT * FROM elenco'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -70,7 +70,7 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
-	def getMovies(self):
+	def getPeliculas(self):
 		if self.connected:
 			lista=list()
 			query='SELECT * FROM pelicula'
@@ -79,12 +79,13 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1]
-				tmp['desc']=f[2]
-				tmp['estreno']=f[3]
-				tmp['country']=f[4]
+				tmp['nombre']=f[1]
+				tmp['estreno']=f[2]
+				tmp['pais']=f[3]
+				tmp['descripcion']=f[4]
+				tmp['director_id']=f[5]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
-			print "No puede solicitar datos si no esta conectado a una base de datos"
+		print "No puede solicitar datos si no esta conectado a una base de datos"
 
