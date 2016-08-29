@@ -1,18 +1,20 @@
-from PyQt4 import QtGui
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys
-from views.principal import Ui_MainWindow
-from dbManager import dbManager
-
-class App(QtGui.QMainWindow):
-	def __init__(self, parent=None):
-		super(self.__class__, self).__init__()
+from PyQt4 import QtCore, QtGui
+from principal import Ui_MainWindow
+#from dbManager import dbManager
+class Main(QtGui.QMainWindow):
+	def __init__(self):
+		super(Main, self).__init__()
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
-		dbm=dbManager('database.db')
-		dbm.connect()
 		self.show()
 
+		
+
 if __name__ == '__main__':
+	print "Iniciando..."
 	app = QtGui.QApplication(sys.argv)
-	main=App(app)
+	main = Main()
 	sys.exit(app.exec_())
