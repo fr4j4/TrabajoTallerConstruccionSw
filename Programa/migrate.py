@@ -1,12 +1,15 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sqlite3
-db1="database.db"
-db2="database2.db"
+db1="old.db"
+db2="new.db"
 conn1=sqlite3.connect(db1)
 conn2=sqlite3.connect(db2)
 cursor1=conn1.cursor()
 cursor2=conn2.cursor()
 fetch=None
 
+"""
 #migrar actores
 query='SELECT * FROM actor'
 cursor1.execute(query)
@@ -38,16 +41,33 @@ cursor1.execute(query)
 fetch=cursor1.fetchall()
 cursor2.execute("DELETE FROM characters")
 conn2.commit()
-for f in fetch:
+for f in fetch:alter table directors add column img
 	desc=f[4]
 	name=f[3]
-	query_aux='SELECT id FROM characters WHERE desc = "'+desc+'" or name = "'+name+'"'
+	query_aux='SELECT id FROM charactalter table directors add column imgers WHERE desc = "'+desc+'" or name = "'+name+'"'
 	#print query_aux
 	cursor2.execute(query_aux)
 	if cursor2.fetchone()==None:
 		#print cursor2.fetchone()
 		query2='INSERT INTO characters (name,[desc]) values("'+name+'","'+desc+'")'
 		cursor2.execute(query2)
+"""
+#migrar directores
+query='SELECT * FROM director'
+cursor1.execute(query)
+fetch=cursor1.fetchall()
+cursor2.execute("DELETE FROM directors")
+conn2.commit()
+for f in fetch:
+	name=f[1].encode('utf-8')
+	country=str(f[2]).encode('utf-8')
+	birth=str(f[3]).encode('utf-8')
+	death=str(f[4]).encode('utf-8')
+	if(death=="None"):
+		death=""
+	query2="INSERT INTO directors (name,country,birth,death,img) values('{0}','{1}','{2}','{3}','')".format(name,country,birth,death)
+	print query2
+	cursor2.execute(query2)
 conn2.commit()
 conn1.close()
 conn2.close()

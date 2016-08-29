@@ -24,6 +24,15 @@ class dbManager(object):
 		if(fetch!=None):
 			img=fetch[0]
 		return img
+
+	def getDirectorImage(self,id):#obtiene la ruta de la imagen de un actor a partir de la IS
+		img=""
+		query='SELECT img FROM directors where id='+str(id)+";"
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		if(fetch!=None):
+			img=fetch[0]
+		return img
 	
 
 	def getActors(self):

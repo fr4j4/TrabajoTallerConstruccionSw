@@ -16,7 +16,7 @@ class Main(QtGui.QMainWindow):
 		self.show()
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
-		self.dbm=dbManager("database_final.db")
+		self.dbm=dbManager("data.db")
 		self.dbm.connect()
 
 		self.default_actor_pixmap = QtGui.QPixmap(('images/default_person.png'))
@@ -84,6 +84,10 @@ class Main(QtGui.QMainWindow):
 
 
 	def actualizar_tabla_directores(self):
+		actors= self.dbm.getDirectors()
+		while self.ui.tabla_actores.rowCount()>0:
+			self.ui.tabla_actores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
+
 		print "actualizando tabla de directores!"
 
 	def actualiza_foto_actor(self):
