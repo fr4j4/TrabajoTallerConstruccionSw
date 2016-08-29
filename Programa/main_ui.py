@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Mon Aug 29 14:54:36 2016
+# Created: Mon Aug 29 15:52:50 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -40,14 +40,15 @@ class Ui_MainWindow(object):
         self.comboBox = QtGui.QComboBox(self.Peliculas)
         self.comboBox.setGeometry(QtCore.QRect(480, 220, 121, 22))
         self.comboBox.setObjectName(_fromUtf8("comboBox"))
-        self.Display = QtGui.QLabel(self.Peliculas)
-        self.Display.setGeometry(QtCore.QRect(480, 30, 111, 151))
-        self.Display.setStyleSheet(_fromUtf8(" border-style: solid;\n"
+        self.pelicula_image = QtGui.QLabel(self.Peliculas)
+        self.pelicula_image.setGeometry(QtCore.QRect(480, 30, 111, 151))
+        self.pelicula_image.setStyleSheet(_fromUtf8(" border-style: solid;\n"
 "     border-width: 2px;\n"
 "     border-radius: 5px;\n"
 "     border-color: black;"))
-        self.Display.setText(_fromUtf8(""))
-        self.Display.setObjectName(_fromUtf8("Display"))
+        self.pelicula_image.setText(_fromUtf8(""))
+        self.pelicula_image.setScaledContents(True)
+        self.pelicula_image.setObjectName(_fromUtf8("pelicula_image"))
         self.BNuevo = QtGui.QPushButton(self.Peliculas)
         self.BNuevo.setGeometry(QtCore.QRect(10, 220, 121, 23))
         self.BNuevo.setObjectName(_fromUtf8("BNuevo"))
@@ -59,20 +60,23 @@ class Ui_MainWindow(object):
         self.BEditar.setObjectName(_fromUtf8("BEditar"))
         self.tabla_paliculas = QtGui.QTableWidget(self.Peliculas)
         self.tabla_paliculas.setGeometry(QtCore.QRect(10, 10, 451, 201))
+        self.tabla_paliculas.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.tabla_paliculas.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tabla_paliculas.setObjectName(_fromUtf8("tabla_paliculas"))
         self.tabla_paliculas.setColumnCount(0)
         self.tabla_paliculas.setRowCount(0)
         self.tabWidget.addTab(self.Peliculas, _fromUtf8(""))
         self.Actores = QtGui.QWidget()
         self.Actores.setObjectName(_fromUtf8("Actores"))
-        self.Display_2 = QtGui.QLabel(self.Actores)
-        self.Display_2.setGeometry(QtCore.QRect(480, 30, 111, 151))
-        self.Display_2.setStyleSheet(_fromUtf8(" border-style: solid;\n"
+        self.actor_image = QtGui.QLabel(self.Actores)
+        self.actor_image.setGeometry(QtCore.QRect(480, 30, 111, 151))
+        self.actor_image.setStyleSheet(_fromUtf8(" border-style: solid;\n"
 "     border-width: 2px;\n"
 "     border-radius: 5px;\n"
 "     border-color: black;"))
-        self.Display_2.setText(_fromUtf8(""))
-        self.Display_2.setObjectName(_fromUtf8("Display_2"))
+        self.actor_image.setText(_fromUtf8(""))
+        self.actor_image.setScaledContents(True)
+        self.actor_image.setObjectName(_fromUtf8("actor_image"))
         self.BEliminar_2 = QtGui.QPushButton(self.Actores)
         self.BEliminar_2.setGeometry(QtCore.QRect(340, 220, 121, 23))
         self.BEliminar_2.setObjectName(_fromUtf8("BEliminar_2"))
@@ -90,6 +94,8 @@ class Ui_MainWindow(object):
         self.BNuevo_2.setObjectName(_fromUtf8("BNuevo_2"))
         self.tabla_actores = QtGui.QTableWidget(self.Actores)
         self.tabla_actores.setGeometry(QtCore.QRect(10, 50, 451, 161))
+        self.tabla_actores.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.tabla_actores.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tabla_actores.setObjectName(_fromUtf8("tabla_actores"))
         self.tabla_actores.setColumnCount(0)
         self.tabla_actores.setRowCount(0)
@@ -105,16 +111,19 @@ class Ui_MainWindow(object):
         self.BEliminar_3 = QtGui.QPushButton(self.Directores)
         self.BEliminar_3.setGeometry(QtCore.QRect(340, 220, 121, 23))
         self.BEliminar_3.setObjectName(_fromUtf8("BEliminar_3"))
-        self.Display_3 = QtGui.QLabel(self.Directores)
-        self.Display_3.setGeometry(QtCore.QRect(480, 30, 111, 151))
-        self.Display_3.setStyleSheet(_fromUtf8(" border-style: solid;\n"
+        self.director_image = QtGui.QLabel(self.Directores)
+        self.director_image.setGeometry(QtCore.QRect(480, 30, 111, 151))
+        self.director_image.setStyleSheet(_fromUtf8(" border-style: solid;\n"
 "     border-width: 2px;\n"
 "     border-radius: 5px;\n"
 "     border-color: black;"))
-        self.Display_3.setText(_fromUtf8(""))
-        self.Display_3.setObjectName(_fromUtf8("Display_3"))
+        self.director_image.setText(_fromUtf8(""))
+        self.director_image.setScaledContents(True)
+        self.director_image.setObjectName(_fromUtf8("director_image"))
         self.tabla_directores = QtGui.QTableWidget(self.Directores)
         self.tabla_directores.setGeometry(QtCore.QRect(10, 10, 451, 201))
+        self.tabla_directores.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.tabla_directores.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tabla_directores.setObjectName(_fromUtf8("tabla_directores"))
         self.tabla_directores.setColumnCount(0)
         self.tabla_directores.setRowCount(0)
@@ -126,7 +135,7 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

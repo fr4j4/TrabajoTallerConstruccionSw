@@ -17,29 +17,19 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
+      <x>10</x>
+      <y>10</y>
       <width>621</width>
       <height>281</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Peliculas">
      <attribute name="title">
       <string>Películas</string>
      </attribute>
-     <widget class="QTableView" name="Tabla">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>461</width>
-        <height>201</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QCheckBox" name="checkBox">
       <property name="geometry">
        <rect>
@@ -63,7 +53,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="Display">
+     <widget class="QLabel" name="pelicula_image">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -80,6 +70,9 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="BNuevo">
@@ -121,22 +114,28 @@
        <string>Editar Seleccionado...</string>
       </property>
      </widget>
+     <widget class="QTableWidget" name="tabla_paliculas">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>451</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Actores">
      <attribute name="title">
       <string>Actores</string>
      </attribute>
-     <widget class="QTableView" name="Tabla_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>451</width>
-        <height>161</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="Display_2">
+     <widget class="QLabel" name="actor_image">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -153,6 +152,9 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="BEliminar_2">
@@ -217,21 +219,35 @@
        <string>Nuevo Actor...</string>
       </property>
      </widget>
+     <widget class="QTableWidget" name="tabla_actores">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>451</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
+     <zorder>actor_image</zorder>
+     <zorder>BEliminar_2</zorder>
+     <zorder>BEditar_2</zorder>
+     <zorder>comboBox_2</zorder>
+     <zorder>checkBox_2</zorder>
+     <zorder>BNuevo_2</zorder>
+     <zorder>tabla_actores</zorder>
+     <zorder>tabla_actores</zorder>
     </widget>
     <widget class="QWidget" name="Directores">
      <attribute name="title">
       <string>Directores</string>
      </attribute>
-     <widget class="QTableView" name="Tabla_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>451</width>
-        <height>201</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="BNuevo_3">
       <property name="geometry">
        <rect>
@@ -271,7 +287,7 @@
        <string>Eliminar Seleccionado</string>
       </property>
      </widget>
-     <widget class="QLabel" name="Display_3">
+     <widget class="QLabel" name="director_image">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -288,6 +304,25 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tabla_directores">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>451</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
       </property>
      </widget>
     </widget>

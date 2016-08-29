@@ -18,12 +18,24 @@ class Main(QtGui.QMainWindow):
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("database_final.db")
 		self.dbm.connect()
-		self.ui.tabWidget.setCurrentIndex(0)#cambiar a la primera pestaña
-		self.actualizar_tablas();
+
+		self.default_actor_pixmap = QtGui.QPixmap(('images/default_person.png'))
+		self.default_director_pixmap = QtGui.QPixmap(('images/default_person.png'))
+		self.default_pelicula_pixmap = QtGui.QPixmap(('images/default_movie.jpg'))
+		
+		self.ui.actor_image.setPixmap(self.default_actor_pixmap)
+		self.ui.director_image.setPixmap(self.default_director_pixmap)
+		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
+		
+		self.signals()
+
+		self.ui.tabWidget.setCurrentIndex(1)#cambiar a la primera pestaña
+		
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
-		pass
+		self.ui.tabla_actores.clicked.connect(self.actualiza_foto_actor)
+		
 
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -73,6 +85,17 @@ class Main(QtGui.QMainWindow):
 
 	def actualizar_tabla_directores(self):
 		print "actualizando tabla de directores!"
+
+	def actualiza_foto_actor(self):
+		row=self.ui.tabla_actores.currentRow()
+		img=self.dbm.getActorImage(self.ui.tabla_actores.item(row,0).text())
+		print img
+		if(img!=""):
+			pixmap = QtGui.QPixmap(img)
+			self.ui.actor_image.setPixmap(pixmap)
+		else:
+			self.ui.actor_image.setPixmap(self.default_actor_pixmap)
+
 
 	def imprimeAlgo(self):#funcion para probar las señales (sólo imprime)
 		print "Algo"
