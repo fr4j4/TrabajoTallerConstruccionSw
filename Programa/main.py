@@ -29,12 +29,13 @@ class Main(QtGui.QMainWindow):
 		
 		self.signals()
 
-		self.ui.tabWidget.setCurrentIndex(1)#cambiar a la primera pestaña
+		self.ui.tabWidget.setCurrentIndex(2)#cambiar a la primera pestaña
 		
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
 		self.ui.tabla_actores.clicked.connect(self.actualiza_foto_actor)
+		self.ui.tabla_directores.clicked.connect(self.actualiza_foto_director)
 		
 
 	def actualizar_tablas(self):
@@ -80,15 +81,25 @@ class Main(QtGui.QMainWindow):
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 			
 			
-		print self.ui.tabla_actores.rowCount()
-
+		#print self.ui.tabla_actores.rowCount()
 
 	def actualizar_tabla_directores(self):
-		actors= self.dbm.getDirectors()
-		while self.ui.tabla_actores.rowCount()>0:
-			self.ui.tabla_actores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
+		directors= self.dbm.getDirectors()
+		self.ui.tabla_directores.setColumnCount(5)
+		self.ui.tabla_directores.setColumnHidden(0,True)
+		while self.ui.tabla_directores.rowCount()>0:
+			self.ui.tabla_directores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
+		for director in directors:
+			self.ui.tabla_directores.insertRow(self.ui.tabla_directores.rowCount())
+			
+			item_id=QTableWidgetItem(str(director['id']))
+			item_id.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,0,item_id)
 
-		print "actualizando tabla de directores!"
+			item_nombre=QTableWidgetItem(director['name'])
+			item_nombre.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,1,item_nombre)
+
 
 	def actualiza_foto_actor(self):
 		row=self.ui.tabla_actores.currentRow()
@@ -100,6 +111,15 @@ class Main(QtGui.QMainWindow):
 		else:
 			self.ui.actor_image.setPixmap(self.default_actor_pixmap)
 
+	def actualiza_foto_director(self):
+		row=self.ui.tabla_directores.currentRow()
+		img=self.dbm.getDirectorImage(self.ui.tabla_directores.item(row,0).text())
+		print img
+		if(img!=""):
+			pixmap = QtGui.QPixmap(img)
+			self.ui.director_image.setPixmap(pixmap)
+		else:
+			self.ui.director_image.setPixmap(self.default_director_pixmap)
 
 	def imprimeAlgo(self):#funcion para probar las señales (sólo imprime)
 		print "Algo"
