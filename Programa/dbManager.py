@@ -33,6 +33,15 @@ class dbManager(object):
 		if(fetch!=None):
 			img=fetch[0]
 		return img
+
+	def getMovieImage(self,id):#obtiene la ruta de la imagen de un actor a partir de la IS
+		img=""
+		query='SELECT img FROM movies where id='+str(id)+";"
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		if(fetch!=None):
+			img=fetch[0]
+		return img
 	
 
 	def getActors(self):
@@ -92,7 +101,7 @@ class dbManager(object):
 	def getMovies(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM pelicula'
+			query='SELECT * FROM movies'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:

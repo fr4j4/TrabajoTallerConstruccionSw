@@ -114,7 +114,7 @@
        <string>Editar Seleccionado...</string>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tabla_paliculas">
+     <widget class="QTableWidget" name="tabla_peliculas">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -235,14 +235,6 @@
        <enum>QAbstractItemView::SelectRows</enum>
       </property>
      </widget>
-     <zorder>actor_image</zorder>
-     <zorder>BEliminar_2</zorder>
-     <zorder>BEditar_2</zorder>
-     <zorder>comboBox_2</zorder>
-     <zorder>checkBox_2</zorder>
-     <zorder>BNuevo_2</zorder>
-     <zorder>tabla_actores</zorder>
-     <zorder>tabla_actores</zorder>
     </widget>
     <widget class="QWidget" name="Directores">
      <attribute name="title">

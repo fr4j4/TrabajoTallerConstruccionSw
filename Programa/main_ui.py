@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Mon Aug 29 15:52:50 2016
+# Created: Mon Aug 29 18:44:27 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -58,13 +58,13 @@ class Ui_MainWindow(object):
         self.BEditar = QtGui.QPushButton(self.Peliculas)
         self.BEditar.setGeometry(QtCore.QRect(180, 220, 121, 23))
         self.BEditar.setObjectName(_fromUtf8("BEditar"))
-        self.tabla_paliculas = QtGui.QTableWidget(self.Peliculas)
-        self.tabla_paliculas.setGeometry(QtCore.QRect(10, 10, 451, 201))
-        self.tabla_paliculas.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
-        self.tabla_paliculas.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
-        self.tabla_paliculas.setObjectName(_fromUtf8("tabla_paliculas"))
-        self.tabla_paliculas.setColumnCount(0)
-        self.tabla_paliculas.setRowCount(0)
+        self.tabla_peliculas = QtGui.QTableWidget(self.Peliculas)
+        self.tabla_peliculas.setGeometry(QtCore.QRect(10, 10, 451, 201))
+        self.tabla_peliculas.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.tabla_peliculas.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
+        self.tabla_peliculas.setObjectName(_fromUtf8("tabla_peliculas"))
+        self.tabla_peliculas.setColumnCount(0)
+        self.tabla_peliculas.setRowCount(0)
         self.tabWidget.addTab(self.Peliculas, _fromUtf8(""))
         self.Actores = QtGui.QWidget()
         self.Actores.setObjectName(_fromUtf8("Actores"))

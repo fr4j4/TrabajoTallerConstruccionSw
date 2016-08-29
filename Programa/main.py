@@ -29,13 +29,14 @@ class Main(QtGui.QMainWindow):
 		
 		self.signals()
 
-		self.ui.tabWidget.setCurrentIndex(2)#cambiar a la primera pestaña
+		self.ui.tabWidget.setCurrentIndex(0)#cambiar a la primera pestaña
 		
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
 		self.ui.tabla_actores.clicked.connect(self.actualiza_foto_actor)
 		self.ui.tabla_directores.clicked.connect(self.actualiza_foto_director)
+		self.ui.tabla_peliculas.clicked.connect(self.actualiza_foto_pelicula)
 		
 
 	def actualizar_tablas(self):
@@ -48,6 +49,33 @@ class Main(QtGui.QMainWindow):
 
 	def actualizar_tabla_peliculas(self):
 		print "actualizando tabla de peliculas!"
+		self.ui.tabla_peliculas.setColumnCount(4)
+		self.ui.tabla_peliculas.setColumnHidden(0,True)
+		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno").split(";"))
+		while self.ui.tabla_peliculas.rowCount()>0:
+			self.ui.tabla_peliculas.removeRow(0)
+		movies= self.dbm.getMovies()
+
+		for mov in movies:
+			self.ui.tabla_peliculas.insertRow(self.ui.tabla_peliculas.rowCount())
+
+			item_id=QTableWidgetItem(str(mov['id']))
+			item_id.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,0,item_id)
+
+			item_nombre=QTableWidgetItem(mov['name'])
+			item_nombre.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,1,item_nombre)
+
+			item_pais=QTableWidgetItem(mov['country'])
+			item_pais.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,2,item_pais)
+
+			item_estreno=QTableWidgetItem(mov['estreno'])
+			item_estreno.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,3,item_estreno)
+
+
 
 	def actualizar_tabla_actores(self):#actualizar tabla de actores
 		print "actualizando tabla de actores!"
@@ -59,7 +87,7 @@ class Main(QtGui.QMainWindow):
 		self.ui.tabla_actores.setColumnCount(4)
 		self.ui.tabla_actores.setColumnHidden(0,True)#ocultar columna de ID (no es necesario que el usuario la vea)
 		#dar nombre a los encabezados de la tabla
-		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID 1;Nombre;Fecha nacimiento;Genero").split(";"))
+		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID;Nombre;Nacimiento;Genero").split(";"))
 		#insertar nuevamente todas las filas
 		for actor in actors:
 			self.ui.tabla_actores.insertRow(self.ui.tabla_actores.rowCount())#inserto una fila vacía
@@ -87,6 +115,7 @@ class Main(QtGui.QMainWindow):
 		directors= self.dbm.getDirectors()
 		self.ui.tabla_directores.setColumnCount(5)
 		self.ui.tabla_directores.setColumnHidden(0,True)
+		self.ui.tabla_directores.setHorizontalHeaderLabels(QString("ID;Nombre;Pais;Nacimiento;Muerte").split(";"))
 		while self.ui.tabla_directores.rowCount()>0:
 			self.ui.tabla_directores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
 		for director in directors:
@@ -100,11 +129,24 @@ class Main(QtGui.QMainWindow):
 			item_nombre.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,1,item_nombre)
 
+			item_pais=QTableWidgetItem(director['country'])
+			item_pais.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,2,item_pais)
+
+			item_nacimiento=QTableWidgetItem(director['birth'])
+			item_nacimiento.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,3,item_nacimiento)
+
+			item_muerte=QTableWidgetItem(director['death'])
+			item_muerte.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,4,item_muerte)
+
+
+			#falta completar
 
 	def actualiza_foto_actor(self):
 		row=self.ui.tabla_actores.currentRow()
 		img=self.dbm.getActorImage(self.ui.tabla_actores.item(row,0).text())
-		print img
 		if(img!=""):
 			pixmap = QtGui.QPixmap(img)
 			self.ui.actor_image.setPixmap(pixmap)
@@ -114,12 +156,21 @@ class Main(QtGui.QMainWindow):
 	def actualiza_foto_director(self):
 		row=self.ui.tabla_directores.currentRow()
 		img=self.dbm.getDirectorImage(self.ui.tabla_directores.item(row,0).text())
-		print img
 		if(img!=""):
 			pixmap = QtGui.QPixmap(img)
 			self.ui.director_image.setPixmap(pixmap)
 		else:
 			self.ui.director_image.setPixmap(self.default_director_pixmap)
+
+
+	def actualiza_foto_pelicula(self):
+		row=self.ui.tabla_peliculas.currentRow()
+		img=self.dbm.getMovieImage(self.ui.tabla_peliculas.item(row,0).text())
+		if(img!=""):
+			pixmap = QtGui.QPixmap(img)
+			self.ui.pelicula_image.setPixmap(pixmap)
+		else:
+			self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 
 	def imprimeAlgo(self):#funcion para probar las señales (sólo imprime)
 		print "Algo"
