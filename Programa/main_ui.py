@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Fri Aug 12 03:59:40 2016
+# Created: Mon Aug 29 14:54:36 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,13 +30,10 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(0, 20, 621, 281))
+        self.tabWidget.setGeometry(QtCore.QRect(10, 10, 621, 281))
         self.tabWidget.setObjectName(_fromUtf8("tabWidget"))
         self.Peliculas = QtGui.QWidget()
         self.Peliculas.setObjectName(_fromUtf8("Peliculas"))
-        self.Tabla = QtGui.QTableView(self.Peliculas)
-        self.Tabla.setGeometry(QtCore.QRect(10, 10, 461, 201))
-        self.Tabla.setObjectName(_fromUtf8("Tabla"))
         self.checkBox = QtGui.QCheckBox(self.Peliculas)
         self.checkBox.setGeometry(QtCore.QRect(480, 200, 121, 17))
         self.checkBox.setObjectName(_fromUtf8("checkBox"))
@@ -60,12 +57,14 @@ class Ui_MainWindow(object):
         self.BEditar = QtGui.QPushButton(self.Peliculas)
         self.BEditar.setGeometry(QtCore.QRect(180, 220, 121, 23))
         self.BEditar.setObjectName(_fromUtf8("BEditar"))
+        self.tabla_paliculas = QtGui.QTableWidget(self.Peliculas)
+        self.tabla_paliculas.setGeometry(QtCore.QRect(10, 10, 451, 201))
+        self.tabla_paliculas.setObjectName(_fromUtf8("tabla_paliculas"))
+        self.tabla_paliculas.setColumnCount(0)
+        self.tabla_paliculas.setRowCount(0)
         self.tabWidget.addTab(self.Peliculas, _fromUtf8(""))
         self.Actores = QtGui.QWidget()
         self.Actores.setObjectName(_fromUtf8("Actores"))
-        self.Tabla_2 = QtGui.QTableView(self.Actores)
-        self.Tabla_2.setGeometry(QtCore.QRect(10, 50, 451, 161))
-        self.Tabla_2.setObjectName(_fromUtf8("Tabla_2"))
         self.Display_2 = QtGui.QLabel(self.Actores)
         self.Display_2.setGeometry(QtCore.QRect(480, 30, 111, 151))
         self.Display_2.setStyleSheet(_fromUtf8(" border-style: solid;\n"
@@ -89,12 +88,14 @@ class Ui_MainWindow(object):
         self.BNuevo_2 = QtGui.QPushButton(self.Actores)
         self.BNuevo_2.setGeometry(QtCore.QRect(10, 220, 121, 23))
         self.BNuevo_2.setObjectName(_fromUtf8("BNuevo_2"))
+        self.tabla_actores = QtGui.QTableWidget(self.Actores)
+        self.tabla_actores.setGeometry(QtCore.QRect(10, 50, 451, 161))
+        self.tabla_actores.setObjectName(_fromUtf8("tabla_actores"))
+        self.tabla_actores.setColumnCount(0)
+        self.tabla_actores.setRowCount(0)
         self.tabWidget.addTab(self.Actores, _fromUtf8(""))
         self.Directores = QtGui.QWidget()
         self.Directores.setObjectName(_fromUtf8("Directores"))
-        self.Tabla_3 = QtGui.QTableView(self.Directores)
-        self.Tabla_3.setGeometry(QtCore.QRect(10, 10, 451, 201))
-        self.Tabla_3.setObjectName(_fromUtf8("Tabla_3"))
         self.BNuevo_3 = QtGui.QPushButton(self.Directores)
         self.BNuevo_3.setGeometry(QtCore.QRect(10, 220, 121, 23))
         self.BNuevo_3.setObjectName(_fromUtf8("BNuevo_3"))
@@ -112,6 +113,11 @@ class Ui_MainWindow(object):
 "     border-color: black;"))
         self.Display_3.setText(_fromUtf8(""))
         self.Display_3.setObjectName(_fromUtf8("Display_3"))
+        self.tabla_directores = QtGui.QTableWidget(self.Directores)
+        self.tabla_directores.setGeometry(QtCore.QRect(10, 10, 451, 201))
+        self.tabla_directores.setObjectName(_fromUtf8("tabla_directores"))
+        self.tabla_directores.setColumnCount(0)
+        self.tabla_directores.setRowCount(0)
         self.tabWidget.addTab(self.Directores, _fromUtf8(""))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -139,14 +145,4 @@ class Ui_MainWindow(object):
         self.BEditar_3.setText(_translate("MainWindow", "Editar Seleccionado...", None))
         self.BEliminar_3.setText(_translate("MainWindow", "Eliminar Seleccionado", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Directores), _translate("MainWindow", "Directores", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
 
