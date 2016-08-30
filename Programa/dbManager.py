@@ -116,3 +116,29 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
+	def getMoviesByActor(self,actor_id):#filtrar la busqueda por id del actor
+		if self.connected:
+			lista=list()
+			query='SELECT * FROM movies'
+			self.cursor.execute(query)
+			fetch=self.cursor.fetchall()
+			for f in fetch:
+				tmp={}#creo un diccionario temporal vacio y lo lleno 
+				tmp['id']=f[0]
+				tmp['name']=f[1].encode('utf-8')
+				tmp['desc']=f[2].encode('utf-8')
+				tmp['estreno']=f[3].encode('utf-8')
+				tmp['country']=f[4].encode('utf-8')
+				lista.append(tmp)#agrego el diccionario temporal a la lista
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"
+
+	def getMovieDescription(self,id):
+		desc=""
+		query='SELECT desc FROM movies where id='+str(id)+";"
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		if(fetch!=None):
+			desc=fetch[0]
+		return desc
