@@ -28,7 +28,9 @@ class Main(QtGui.QMainWindow):
 		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 		
 		self.ui.actor_filter_comboBox.setEnabled(False)
-		
+		self.ui.movie_filter_comboBox.setEnabled(False)
+
+
 		self.signals()
 
 		self.ui.tabWidget.setCurrentIndex(0)#cambiar a la primera pestaña
@@ -38,8 +40,12 @@ class Main(QtGui.QMainWindow):
 		self.ui.tabla_actores.clicked.connect(self.tabla_actores_clicked)
 		self.ui.tabla_directores.clicked.connect(self.tabla_directores_clicked)
 		self.ui.tabla_peliculas.clicked.connect(self.tabla_peliculas_clicked)
+		
 		self.ui.actor_filter_comboBox.currentIndexChanged.connect(self.actor_combobox_clicked)
+		self.ui.movie_filter_comboBox.currentIndexChanged.connect(self.movie_combobox_clicked)
+
 		self.ui.filter_actor_checkBox.stateChanged.connect(self.actor_filter_checkBox_clicked)
+		self.ui.filter_pelicula_checkBox.stateChanged.connect(self.pelicula_filter_checkBox_clicked)
 		
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -87,12 +93,20 @@ class Main(QtGui.QMainWindow):
 			item_estreno.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,3,item_estreno)
 
-	def actualizar_tabla_actores(self):#actualizar tabla de actores
+	def actualizar_tabla_actores(self,filter=False):#actualizar tabla de actores
 		print "actualizando tabla de actores!"
-		actors= self.dbm.getActors() #obtengo el arreglo de actores para rellenar la tabla
 		#eliminar todas las filas (IMPORTANTE!)
 		while self.ui.tabla_actores.rowCount()>0:
 			self.ui.tabla_actores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
+
+		actors= None
+
+		if(filter==False):
+			actors=self.dbm.getActors()#obtengo el arreglo de actores para rellenar la tabla
+		else:
+			#obtengo la id del actor para hacer la búsqieda con filtro
+			movie_id=self.ui.movie_filter_comboBox.itemData(self.ui.movie_filter_comboBox.currentIndex()).toPyObject()
+			actors=self.dbm.getActorsByMovie(movie_id)
 
 		self.ui.tabla_actores.setColumnCount(4)
 		self.ui.tabla_actores.setColumnHidden(0,True)#ocultar columna de ID (no es necesario que el usuario la vea)
@@ -204,6 +218,10 @@ class Main(QtGui.QMainWindow):
 		if(self.ui.filter_actor_checkBox.isChecked()):#si el checkbox esta marcado, filtrar
 			self.actualizar_tabla_peliculas(filter=True);
 
+	def movie_combobox_clicked(self,movie_id):
+		if(self.ui.filter_pelicula_checkBox.isChecked()):
+			self.actualizar_tabla_actores(filter=True);
+
 
 	def actor_filter_checkBox_clicked(self):
 		if(self.ui.filter_actor_checkBox.isChecked()):
@@ -212,6 +230,14 @@ class Main(QtGui.QMainWindow):
 		else:
 			self.ui.actor_filter_comboBox.setEnabled(False)
 			self.actualizar_tabla_peliculas()
+
+	def pelicula_filter_checkBox_clicked(self):
+		if(self.ui.filter_pelicula_checkBox.isChecked()):
+			self.actualizar_tabla_actores(filter=True);
+			self.ui.movie_filter_comboBox.setEnabled(True)
+		else:
+			self.ui.movie_filter_comboBox.setEnabled(False)
+			self.actualizar_tabla_actores()
 
 	def actualiza_descripcion_pelicula(self,id):
 		self.ui.pelicula_description_text.setText("");

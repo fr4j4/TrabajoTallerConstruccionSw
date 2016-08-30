@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Mon Aug 29 23:37:40 2016
+# Created: Tue Aug 30 01:12:08 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -91,9 +91,9 @@ class Ui_MainWindow(object):
         self.movie_filter_comboBox = QtGui.QComboBox(self.Actores)
         self.movie_filter_comboBox.setGeometry(QtCore.QRect(160, 8, 301, 22))
         self.movie_filter_comboBox.setObjectName(_fromUtf8("movie_filter_comboBox"))
-        self.pelicula_filter_checkBox = QtGui.QCheckBox(self.Actores)
-        self.pelicula_filter_checkBox.setGeometry(QtCore.QRect(10, 10, 131, 17))
-        self.pelicula_filter_checkBox.setObjectName(_fromUtf8("pelicula_filter_checkBox"))
+        self.filter_pelicula_checkBox = QtGui.QCheckBox(self.Actores)
+        self.filter_pelicula_checkBox.setGeometry(QtCore.QRect(10, 10, 131, 17))
+        self.filter_pelicula_checkBox.setObjectName(_fromUtf8("filter_pelicula_checkBox"))
         self.BNuevo_2 = QtGui.QPushButton(self.Actores)
         self.BNuevo_2.setGeometry(QtCore.QRect(10, 300, 121, 23))
         self.BNuevo_2.setObjectName(_fromUtf8("BNuevo_2"))
@@ -140,7 +140,7 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -152,7 +152,7 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Peliculas), _translate("MainWindow", "Películas", None))
         self.BEliminar_2.setText(_translate("MainWindow", "Eliminar Seleccionado", None))
         self.BEditar_2.setText(_translate("MainWindow", "Editar Seleccionado...", None))
-        self.pelicula_filter_checkBox.setText(_translate("MainWindow", "Filtrar por película?", None))
+        self.filter_pelicula_checkBox.setText(_translate("MainWindow", "Filtrar por película?", None))
         self.BNuevo_2.setText(_translate("MainWindow", "Nuevo Actor...", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Actores), _translate("MainWindow", "Actores", None))
         self.BNuevo_3.setText(_translate("MainWindow", "Nuevo Director...", None))

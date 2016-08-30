@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Peliculas">
      <attribute name="title">
@@ -209,7 +209,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QCheckBox" name="pelicula_filter_checkBox">
+     <widget class="QCheckBox" name="filter_pelicula_checkBox">
       <property name="geometry">
        <rect>
         <x>10</x>
