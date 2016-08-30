@@ -27,6 +27,8 @@ class Main(QtGui.QMainWindow):
 		self.ui.director_image.setPixmap(self.default_director_pixmap)
 		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 		
+		self.ui.actor_filter_comboBox.setEnabled(False)
+		
 		self.signals()
 
 		self.ui.tabWidget.setCurrentIndex(0)#cambiar a la primera pestaña
@@ -202,9 +204,14 @@ class Main(QtGui.QMainWindow):
 		if(self.ui.filter_actor_checkBox.isChecked()):#si el checkbox esta marcado, filtrar
 			self.actualizar_tabla_peliculas(filter=True);
 
+
 	def actor_filter_checkBox_clicked(self):
 		if(self.ui.filter_actor_checkBox.isChecked()):
 			self.actualizar_tabla_peliculas(filter=True);
+			self.ui.actor_filter_comboBox.setEnabled(True)
+		else:
+			self.ui.actor_filter_comboBox.setEnabled(False)
+			self.actualizar_tabla_peliculas()
 
 	def actualiza_descripcion_pelicula(self,id):
 		self.ui.pelicula_description_text.setText("");

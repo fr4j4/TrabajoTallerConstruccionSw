@@ -117,9 +117,10 @@ class dbManager(object):
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
 	def getMoviesByActor(self,actor_id):#filtrar la busqueda por id del actor
+		print actor_id
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM movies'
+			query='select movies.* from movies join actor_character where  movies.id=actor_character.movie_id and actor_character.actor_id='+str(actor_id)
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
