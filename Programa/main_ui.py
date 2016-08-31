@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Tue Aug 30 01:12:08 2016
+# Created: Wed Aug 31 12:05:44 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,6 +27,11 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(800, 400)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
@@ -41,7 +46,7 @@ class Ui_MainWindow(object):
         self.actor_filter_comboBox.setGeometry(QtCore.QRect(160, 8, 301, 22))
         self.actor_filter_comboBox.setObjectName(_fromUtf8("actor_filter_comboBox"))
         self.pelicula_image = QtGui.QLabel(self.Peliculas)
-        self.pelicula_image.setGeometry(QtCore.QRect(560, 40, 111, 151))
+        self.pelicula_image.setGeometry(QtCore.QRect(560, 40, 131, 171))
         self.pelicula_image.setStyleSheet(_fromUtf8(" border-style: solid;\n"
 "     border-width: 2px;\n"
 "     border-radius: 5px;\n"
@@ -67,9 +72,19 @@ class Ui_MainWindow(object):
         self.tabla_peliculas.setRowCount(0)
         self.pelicula_description_text = QtGui.QTextEdit(self.Peliculas)
         self.pelicula_description_text.setEnabled(True)
-        self.pelicula_description_text.setGeometry(QtCore.QRect(470, 200, 301, 91))
+        self.pelicula_description_text.setGeometry(QtCore.QRect(470, 220, 301, 71))
         self.pelicula_description_text.setTextInteractionFlags(QtCore.Qt.TextSelectableByKeyboard|QtCore.Qt.TextSelectableByMouse)
         self.pelicula_description_text.setObjectName(_fromUtf8("pelicula_description_text"))
+        self.pelicula_name_label = QtGui.QLabel(self.Peliculas)
+        self.pelicula_name_label.setGeometry(QtCore.QRect(490, 10, 251, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pelicula_name_label.setFont(font)
+        self.pelicula_name_label.setText(_fromUtf8(""))
+        self.pelicula_name_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.pelicula_name_label.setObjectName(_fromUtf8("pelicula_name_label"))
         self.tabWidget.addTab(self.Peliculas, _fromUtf8(""))
         self.Actores = QtGui.QWidget()
         self.Actores.setObjectName(_fromUtf8("Actores"))
@@ -104,6 +119,16 @@ class Ui_MainWindow(object):
         self.tabla_actores.setObjectName(_fromUtf8("tabla_actores"))
         self.tabla_actores.setColumnCount(0)
         self.tabla_actores.setRowCount(0)
+        self.actor_name_label = QtGui.QLabel(self.Actores)
+        self.actor_name_label.setGeometry(QtCore.QRect(500, 10, 251, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.actor_name_label.setFont(font)
+        self.actor_name_label.setText(_fromUtf8(""))
+        self.actor_name_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.actor_name_label.setObjectName(_fromUtf8("actor_name_label"))
         self.tabWidget.addTab(self.Actores, _fromUtf8(""))
         self.Directores = QtGui.QWidget()
         self.Directores.setObjectName(_fromUtf8("Directores"))
@@ -132,6 +157,16 @@ class Ui_MainWindow(object):
         self.tabla_directores.setObjectName(_fromUtf8("tabla_directores"))
         self.tabla_directores.setColumnCount(0)
         self.tabla_directores.setRowCount(0)
+        self.director_name_label = QtGui.QLabel(self.Directores)
+        self.director_name_label.setGeometry(QtCore.QRect(500, 10, 251, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.director_name_label.setFont(font)
+        self.director_name_label.setText(_fromUtf8(""))
+        self.director_name_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.director_name_label.setObjectName(_fromUtf8("director_name_label"))
         self.tabWidget.addTab(self.Directores, _fromUtf8(""))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -140,7 +175,7 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

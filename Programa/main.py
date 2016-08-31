@@ -201,17 +201,23 @@ class Main(QtGui.QMainWindow):
 	def tabla_directores_clicked(self):
 		row=self.ui.tabla_directores.currentRow()
 		id=self.ui.tabla_directores.item(row,0).text()
+		name=self.ui.tabla_directores.item(row,1).text()
+		self.ui.director_name_label.setText(name);
 		self.actualiza_foto_director(id)
 
 	def tabla_peliculas_clicked(self):
 		row=self.ui.tabla_peliculas.currentRow()
 		id=self.ui.tabla_peliculas.item(row,0).text()
+		name=self.ui.tabla_peliculas.item(row,1).text()
+		self.ui.pelicula_name_label.setText(name);
 		self.actualiza_foto_pelicula(id)
 		self.actualiza_descripcion_pelicula(id)
 	
 	def tabla_actores_clicked(self):
 		row=self.ui.tabla_actores.currentRow()
 		id=self.ui.tabla_actores.item(row,0).text()
+		name=self.ui.tabla_actores.item(row,1).text()
+		self.ui.actor_name_label.setText(name);
 		self.actualiza_foto_actor(id)
 
 	def actor_combobox_clicked(self,actor_id):
