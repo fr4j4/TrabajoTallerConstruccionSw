@@ -5,14 +5,19 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from main_ui import Ui_MainWindow
+from controllers.login_controller import Login
 from dbManager import dbManager
+
 class Main(QtGui.QMainWindow):
 	def __init__(self):
 		super(Main, self).__init__()
 		print("Qt version:", QtCore.QT_VERSION_STR)
 		self.ui = Ui_MainWindow()
-		self.ui.setupUi(self) 
+		self.ui.setupUi(self)
+		self.login=Login()
+
 		self.init();
+		#self.login.exec_()
 		self.show()
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
@@ -101,9 +106,9 @@ class Main(QtGui.QMainWindow):
 
 		actors= None
 
-		if(filter==False):
+		if(filter==False):#si NO debo filtrar por películas...
 			actors=self.dbm.getActors()#obtengo el arreglo de actores para rellenar la tabla
-		else:
+		else:#en caso de filtrar por películas
 			#obtengo la id del actor para hacer la búsqieda con filtro
 			movie_id=self.ui.movie_filter_comboBox.itemData(self.ui.movie_filter_comboBox.currentIndex()).toPyObject()
 			actors=self.dbm.getActorsByMovie(movie_id)
@@ -222,11 +227,11 @@ class Main(QtGui.QMainWindow):
 
 	def actor_combobox_clicked(self,actor_id):
 		if(self.ui.filter_actor_checkBox.isChecked()):#si el checkbox esta marcado, filtrar
-			self.actualizar_tabla_peliculas(filter=True);
+			self.actualizar_tabla_peliculas(filter=True)
 
 	def movie_combobox_clicked(self,movie_id):
 		if(self.ui.filter_pelicula_checkBox.isChecked()):
-			self.actualizar_tabla_actores(filter=True);
+			self.actualizar_tabla_actores(filter=True)
 
 
 	def actor_filter_checkBox_clicked(self):
