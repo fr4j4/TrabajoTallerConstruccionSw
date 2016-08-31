@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'LoginDialog.ui'
 #
-# Created: Wed Aug 31 14:01:06 2016
+# Created: Wed Aug 31 14:50:04 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,6 +44,7 @@ class Ui_Dialog(object):
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.formLayout_3.setWidget(2, QtGui.QFormLayout.LabelRole, self.label_14)
         self.LPass = QtGui.QLineEdit(self.formLayoutWidget_3)
+        self.LPass.setEchoMode(QtGui.QLineEdit.Password)
         self.LPass.setObjectName(_fromUtf8("LPass"))
         self.formLayout_3.setWidget(2, QtGui.QFormLayout.FieldRole, self.LPass)
         self.LUser = QtGui.QLineEdit(self.formLayoutWidget_3)
@@ -62,14 +63,22 @@ class Ui_Dialog(object):
         self.error_label.setStyleSheet(_fromUtf8("color:red"))
         self.error_label.setText(_fromUtf8(""))
         self.error_label.setObjectName(_fromUtf8("error_label"))
+        self.label_2 = QtGui.QLabel(self.groupBox)
+        self.label_2.setGeometry(QtCore.QRect(220, 0, 71, 31))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet(_fromUtf8("color:black;"))
+        self.label_2.setObjectName(_fromUtf8("label_2"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.groupBox.setTitle(_translate("Dialog", "                                                                  Login", None))
+        self.groupBox.setTitle(_translate("Dialog", "                                                                 ", None))
         self.label_13.setText(_translate("Dialog", "Usuario", None))
         self.label_14.setText(_translate("Dialog", "Contrasena", None))
         self.BIngresar.setText(_translate("Dialog", "Ingresar", None))
+        self.label_2.setText(_translate("Dialog", " Login", None))
 

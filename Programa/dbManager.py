@@ -116,6 +116,14 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
+	def checkLogin(self,user,pwd):
+		b=False
+		query="SELECT count(usuario) from login where usuario= '{0}' and pass= '{1}'".format(user,pwd)
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		b=fetch[0]==1
+		return b
+
 	def getMoviesByActor(self,actor_id):#filtrar la busqueda por id del actor
 		if self.connected:
 			lista=list()
