@@ -20,6 +20,7 @@ class Main(QtGui.QMainWindow):
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
 		self.login.exec_()
 		while self.dbm.checkLogin(self.login.getUser(),self.login.getPwd())==False:
+			self.login.setErrorMessage("Datos no registrados!")
 			self.login.exec_()
 		self.show()
 

@@ -96,17 +96,21 @@
    <widget class="QLabel" name="error_label">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>10</x>
       <y>310</y>
-      <width>52</width>
-      <height>15</height>
+      <width>521</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:red</string>
+     <string notr="true">color:red;
+font-weight:bold;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">

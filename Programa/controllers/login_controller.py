@@ -25,15 +25,11 @@ class Login(QtGui.QDialog):
 	def getPwd(self):
 		return self.pwd
 
+	def setErrorMessage(self,msg):
+		self.ui.error_label.setText("")
+		self.ui.error_label.setText(msg)
+
 	def boton_ingresar_clicked(self):
 		self.user=self.ui.LUser.text()
 		self.pwd=self.ui.LPass.text()
 		self.accept()#se acepta y cierra el dialogo
-
-
-"""
-if __name__ == '__main__':
-	app = QtGui.QApplication(sys.argv)
-	main = Login()
-	sys.exit(app.exec_())
-"""

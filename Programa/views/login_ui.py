@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'LoginDialog.ui'
 #
-# Created: Wed Aug 31 14:50:04 2016
+# Created: Wed Aug 31 15:11:07 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -59,9 +59,11 @@ class Ui_Dialog(object):
         self.label.setPixmap(QtGui.QPixmap(_fromUtf8("rikolin.jpg")))
         self.label.setObjectName(_fromUtf8("label"))
         self.error_label = QtGui.QLabel(self.groupBox)
-        self.error_label.setGeometry(QtCore.QRect(230, 310, 52, 15))
-        self.error_label.setStyleSheet(_fromUtf8("color:red"))
+        self.error_label.setGeometry(QtCore.QRect(10, 310, 521, 21))
+        self.error_label.setStyleSheet(_fromUtf8("color:red;\n"
+"font-weight:bold;"))
         self.error_label.setText(_fromUtf8(""))
+        self.error_label.setAlignment(QtCore.Qt.AlignCenter)
         self.error_label.setObjectName(_fromUtf8("error_label"))
         self.label_2 = QtGui.QLabel(self.groupBox)
         self.label_2.setGeometry(QtCore.QRect(220, 0, 71, 31))
