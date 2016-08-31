@@ -6,6 +6,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from main_ui import Ui_MainWindow
 from controllers.login_controller import Login
+from controllers.director_controller import Director 
 from dbManager import dbManager
 
 class Main(QtGui.QMainWindow):
@@ -15,14 +16,22 @@ class Main(QtGui.QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.login=Login()
+		self.director=Director()
 
 		self.init();
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
+		"""
 		self.login.exec_()
 		while self.dbm.checkLogin(self.login.getUser(),self.login.getPwd())==False:
 			self.login.setErrorMessage("Datos no registrados!")
 			self.login.exec_()
+		"""
 		self.show()
+
+		self.director.setTitle("JJJJJ")
+		self.director.putData("nombre","Pancho")
+		self.director.exec_()
+		print self.director.getData("fdef")
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")
@@ -117,10 +126,10 @@ class Main(QtGui.QMainWindow):
 			movie_id=self.ui.movie_filter_comboBox.itemData(self.ui.movie_filter_comboBox.currentIndex()).toPyObject()
 			actors=self.dbm.getActorsByMovie(movie_id)
 
-		self.ui.tabla_actores.setColumnCount(4)
+		self.ui.tabla_actores.setColumnCount(5)
 		self.ui.tabla_actores.setColumnHidden(0,True)#ocultar columna de ID (no es necesario que el usuario la vea)
 		#dar nombre a los encabezados de la tabla
-		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID;Nombre;Nacimiento;Genero").split(";"))
+		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID;Nombre;Nacimiento;Genero;N. peliculas").split(";"))
 		#insertar nuevamente todas las filas
 		for actor in actors:
 			self.ui.tabla_actores.insertRow(self.ui.tabla_actores.rowCount())#inserto una fila vacía
@@ -140,6 +149,10 @@ class Main(QtGui.QMainWindow):
 			item_genero=QTableWidgetItem(str(actor['genre']).upper())#creo un item y le asigno la id como valor
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
+
+			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
+			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
 	def actualizar_tabla_directores(self):
 		directors= self.dbm.getDirectors()
@@ -240,16 +253,16 @@ class Main(QtGui.QMainWindow):
 
 	def actor_filter_checkBox_clicked(self):
 		if(self.ui.filter_actor_checkBox.isChecked()):
-			self.actualizar_tabla_peliculas(filter=True);
 			self.ui.actor_filter_comboBox.setEnabled(True)
+			self.actualizar_tabla_peliculas(filter=True);
 		else:
 			self.ui.actor_filter_comboBox.setEnabled(False)
 			self.actualizar_tabla_peliculas()
 
 	def pelicula_filter_checkBox_clicked(self):
 		if(self.ui.filter_pelicula_checkBox.isChecked()):
-			self.actualizar_tabla_actores(filter=True);
 			self.ui.movie_filter_comboBox.setEnabled(True)
+			self.actualizar_tabla_actores(filter=True);
 		else:
 			self.ui.movie_filter_comboBox.setEnabled(False)
 			self.actualizar_tabla_actores()

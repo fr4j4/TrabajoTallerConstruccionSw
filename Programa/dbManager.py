@@ -57,6 +57,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
+				tmp['num_pelis']=f[5]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -155,6 +156,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
+				tmp['num_pelis']=f[5]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
