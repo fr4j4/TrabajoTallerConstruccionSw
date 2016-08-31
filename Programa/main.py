@@ -27,18 +27,26 @@ class Main(QtGui.QMainWindow):
 		self.ui.director_image.setPixmap(self.default_director_pixmap)
 		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 		
+		self.ui.actor_filter_comboBox.setEnabled(False)
+		self.ui.movie_filter_comboBox.setEnabled(False)
+
+
 		self.signals()
 
 		self.ui.tabWidget.setCurrentIndex(0)#cambiar a la primera pestaña
-		
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
-		self.ui.tabla_actores.clicked.connect(self.actualiza_foto_actor)
-		self.ui.tabla_directores.clicked.connect(self.actualiza_foto_director)
-		self.ui.tabla_peliculas.clicked.connect(self.actualiza_foto_pelicula)
+		self.ui.tabla_actores.clicked.connect(self.tabla_actores_clicked)
+		self.ui.tabla_directores.clicked.connect(self.tabla_directores_clicked)
+		self.ui.tabla_peliculas.clicked.connect(self.tabla_peliculas_clicked)
 		
+		self.ui.actor_filter_comboBox.currentIndexChanged.connect(self.actor_combobox_clicked)
+		self.ui.movie_filter_comboBox.currentIndexChanged.connect(self.movie_combobox_clicked)
 
+		self.ui.filter_actor_checkBox.stateChanged.connect(self.actor_filter_checkBox_clicked)
+		self.ui.filter_pelicula_checkBox.stateChanged.connect(self.pelicula_filter_checkBox_clicked)
+		
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
 			la info del modelo "dbManager"
@@ -47,14 +55,24 @@ class Main(QtGui.QMainWindow):
 		self.actualizar_tabla_actores()
 		self.actualizar_tabla_directores()
 
-	def actualizar_tabla_peliculas(self):
+		self.actualiza_combobox_actores()
+		self.actualiza_combobox_peliculas()
+
+	def actualizar_tabla_peliculas(self,filter=False):
 		print "actualizando tabla de peliculas!"
 		self.ui.tabla_peliculas.setColumnCount(4)
 		self.ui.tabla_peliculas.setColumnHidden(0,True)
 		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno").split(";"))
 		while self.ui.tabla_peliculas.rowCount()>0:
 			self.ui.tabla_peliculas.removeRow(0)
-		movies= self.dbm.getMovies()
+		
+		movies=None
+		if(filter==False):
+			movies=self.dbm.getMovies()
+		else:
+			#obtengo la id del actor para hacer la búsqieda con filtro
+			actor_id=self.ui.actor_filter_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
+			movies=self.dbm.getMoviesByActor(actor_id)
 
 		for mov in movies:
 			self.ui.tabla_peliculas.insertRow(self.ui.tabla_peliculas.rowCount())
@@ -75,14 +93,20 @@ class Main(QtGui.QMainWindow):
 			item_estreno.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,3,item_estreno)
 
-
-
-	def actualizar_tabla_actores(self):#actualizar tabla de actores
+	def actualizar_tabla_actores(self,filter=False):#actualizar tabla de actores
 		print "actualizando tabla de actores!"
-		actors= self.dbm.getActors() #obtengo el arreglo de actores para rellenar la tabla
 		#eliminar todas las filas (IMPORTANTE!)
 		while self.ui.tabla_actores.rowCount()>0:
 			self.ui.tabla_actores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
+
+		actors= None
+
+		if(filter==False):
+			actors=self.dbm.getActors()#obtengo el arreglo de actores para rellenar la tabla
+		else:
+			#obtengo la id del actor para hacer la búsqieda con filtro
+			movie_id=self.ui.movie_filter_comboBox.itemData(self.ui.movie_filter_comboBox.currentIndex()).toPyObject()
+			actors=self.dbm.getActorsByMovie(movie_id)
 
 		self.ui.tabla_actores.setColumnCount(4)
 		self.ui.tabla_actores.setColumnHidden(0,True)#ocultar columna de ID (no es necesario que el usuario la vea)
@@ -108,9 +132,6 @@ class Main(QtGui.QMainWindow):
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 			
-			
-		#print self.ui.tabla_actores.rowCount()
-
 	def actualizar_tabla_directores(self):
 		directors= self.dbm.getDirectors()
 		self.ui.tabla_directores.setColumnCount(5)
@@ -141,39 +162,93 @@ class Main(QtGui.QMainWindow):
 			item_muerte.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_directores.setItem(self.ui.tabla_directores.rowCount()-1,4,item_muerte)
 
+	def actualiza_combobox_actores(self):
+		self.ui.actor_filter_comboBox.clear()#vaciar el combobox
+		actors=self.dbm.getActors()
+		for actor in actors:
+			self.ui.actor_filter_comboBox.addItem(actor['name'],int(actor['id']))
 
-			#falta completar
+	def actualiza_combobox_peliculas(self):
+		self.ui.movie_filter_comboBox.clear()#vaciar el combobox
+		movies=self.dbm.getMovies()
+		for mov in movies:
+			self.ui.movie_filter_comboBox.addItem(mov['name'],int(mov['id']))	
 
-	def actualiza_foto_actor(self):
-		row=self.ui.tabla_actores.currentRow()
-		img=self.dbm.getActorImage(self.ui.tabla_actores.item(row,0).text())
+	def actualiza_foto_actor(self,id):
+		img=self.dbm.getActorImage(id)
 		if(img!=""):
 			pixmap = QtGui.QPixmap(img)
 			self.ui.actor_image.setPixmap(pixmap)
 		else:
 			self.ui.actor_image.setPixmap(self.default_actor_pixmap)
 
-	def actualiza_foto_director(self):
-		row=self.ui.tabla_directores.currentRow()
-		img=self.dbm.getDirectorImage(self.ui.tabla_directores.item(row,0).text())
+	def actualiza_foto_director(self,id):
+		img=self.dbm.getDirectorImage(id)
 		if(img!=""):
 			pixmap = QtGui.QPixmap(img)
 			self.ui.director_image.setPixmap(pixmap)
 		else:
 			self.ui.director_image.setPixmap(self.default_director_pixmap)
 
-
-	def actualiza_foto_pelicula(self):
-		row=self.ui.tabla_peliculas.currentRow()
-		img=self.dbm.getMovieImage(self.ui.tabla_peliculas.item(row,0).text())
+	def actualiza_foto_pelicula(self,id):
+		img=self.dbm.getMovieImage(id)
 		if(img!=""):
 			pixmap = QtGui.QPixmap(img)
 			self.ui.pelicula_image.setPixmap(pixmap)
 		else:
 			self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 
-	def imprimeAlgo(self):#funcion para probar las señales (sólo imprime)
-		print "Algo"
+	def tabla_directores_clicked(self):
+		row=self.ui.tabla_directores.currentRow()
+		id=self.ui.tabla_directores.item(row,0).text()
+		name=self.ui.tabla_directores.item(row,1).text()
+		self.ui.director_name_label.setText(name);
+		self.actualiza_foto_director(id)
+
+	def tabla_peliculas_clicked(self):
+		row=self.ui.tabla_peliculas.currentRow()
+		id=self.ui.tabla_peliculas.item(row,0).text()
+		name=self.ui.tabla_peliculas.item(row,1).text()
+		self.ui.pelicula_name_label.setText(name);
+		self.actualiza_foto_pelicula(id)
+		self.actualiza_descripcion_pelicula(id)
+	
+	def tabla_actores_clicked(self):
+		row=self.ui.tabla_actores.currentRow()
+		id=self.ui.tabla_actores.item(row,0).text()
+		name=self.ui.tabla_actores.item(row,1).text()
+		self.ui.actor_name_label.setText(name);
+		self.actualiza_foto_actor(id)
+
+	def actor_combobox_clicked(self,actor_id):
+		if(self.ui.filter_actor_checkBox.isChecked()):#si el checkbox esta marcado, filtrar
+			self.actualizar_tabla_peliculas(filter=True);
+
+	def movie_combobox_clicked(self,movie_id):
+		if(self.ui.filter_pelicula_checkBox.isChecked()):
+			self.actualizar_tabla_actores(filter=True);
+
+
+	def actor_filter_checkBox_clicked(self):
+		if(self.ui.filter_actor_checkBox.isChecked()):
+			self.actualizar_tabla_peliculas(filter=True);
+			self.ui.actor_filter_comboBox.setEnabled(True)
+		else:
+			self.ui.actor_filter_comboBox.setEnabled(False)
+			self.actualizar_tabla_peliculas()
+
+	def pelicula_filter_checkBox_clicked(self):
+		if(self.ui.filter_pelicula_checkBox.isChecked()):
+			self.actualizar_tabla_actores(filter=True);
+			self.ui.movie_filter_comboBox.setEnabled(True)
+		else:
+			self.ui.movie_filter_comboBox.setEnabled(False)
+			self.actualizar_tabla_actores()
+
+	def actualiza_descripcion_pelicula(self,id):
+		self.ui.pelicula_description_text.setText("");
+		desc=self.dbm.getMovieDescription(id)
+		self.ui.pelicula_description_text.setText(desc);
 
 if __name__ == '__main__':
 	print "Iniciando..."

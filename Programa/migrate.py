@@ -25,7 +25,7 @@ for f in fetch:
 query='SELECT * FROM pelicula'
 cursor1.execute(query)
 fetch=cursor1.fetchall()
-cursor2.execute("DELETE FROM movies")
+"cursor2.execute("DELETE FROM movies")
 conn2.commit()
 for f in fetch:
 	desc=f[4]
@@ -73,9 +73,17 @@ conn2.commit()
 conn1.close()
 conn2.close()
 """
+"""
 for i in range(5,40):
 	query = 'UPDATE actors SET img="images/actores/{0}.jpg" WHERE id={0};'.format(i)
 	print query
 	cursor1.execute(query)
 	conn1.commit()
+conn1.close()
+"""
+
+query = 'UPDATE actors SET name="Maggie Gyllenhaal" WHERE id=9;'
+print query
+cursor1.execute(query)
+conn1.commit()
 conn1.close()

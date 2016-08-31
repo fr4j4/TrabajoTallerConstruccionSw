@@ -1,5 +1,0 @@
-/*
-update  movies
-set  img ="images/peliculas/xmenfirstclass.jpg"
-where id=7
-*/
