@@ -43,7 +43,6 @@ class dbManager(object):
 			img=fetch[0]
 		return img
 	
-
 	def getActors(self):
 		if self.connected:
 			lista=list()
@@ -170,3 +169,8 @@ class dbManager(object):
 		if(fetch!=None):
 			desc=fetch[0]
 		return desc
+
+
+	def addDirector(self,nombre,pais,fnac,fdef,img):
+		query="INSERT INTO directors (name,country,birth,death,img)  VALUES ('{0}','{1}','{2}','{3}','{4}')".format(nombre,pais,fnac,fdef,img)
+		print query

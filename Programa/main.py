@@ -28,10 +28,12 @@ class Main(QtGui.QMainWindow):
 		"""
 		self.show()
 
+		"""
 		self.director.setTitle("JJJJJ")
 		self.director.putData("nombre","Pancho")
 		self.director.exec_()
 		print self.director.getData("fdef")
+		"""
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")
@@ -64,7 +66,9 @@ class Main(QtGui.QMainWindow):
 
 		self.ui.filter_actor_checkBox.stateChanged.connect(self.actor_filter_checkBox_clicked)
 		self.ui.filter_pelicula_checkBox.stateChanged.connect(self.pelicula_filter_checkBox_clicked)
-		
+	
+		self.ui.BNuevo_3.clicked.connect(self.nuevo_director)
+
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
 			la info del modelo "dbManager"
@@ -250,7 +254,6 @@ class Main(QtGui.QMainWindow):
 		if(self.ui.filter_pelicula_checkBox.isChecked()):
 			self.actualizar_tabla_actores(filter=True)
 
-
 	def actor_filter_checkBox_clicked(self):
 		if(self.ui.filter_actor_checkBox.isChecked()):
 			self.ui.actor_filter_comboBox.setEnabled(True)
@@ -271,6 +274,13 @@ class Main(QtGui.QMainWindow):
 		self.ui.pelicula_description_text.setText("");
 		desc=self.dbm.getMovieDescription(id)
 		self.ui.pelicula_description_text.setText(desc);
+
+	def nuevo_director(self):
+		self.director.setTitle("Agregar nuevo director")
+		self.director.exec_()
+		if(self.director.accepted()):
+			print "agregar_director"
+			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),"img")
 
 if __name__ == '__main__':
 	print "Iniciando..."

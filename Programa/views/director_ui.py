@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DirectorDialog.ui'
 #
-# Created: Wed Aug 31 16:43:03 2016
+# Created: Wed Aug 31 18:24:31 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,12 +26,12 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(645, 229)
+        Dialog.resize(570, 250)
         self.groupBox = QtGui.QGroupBox(Dialog)
-        self.groupBox.setGeometry(QtCore.QRect(10, 10, 541, 211))
+        self.groupBox.setGeometry(QtCore.QRect(10, 10, 541, 161))
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
         self.formLayoutWidget = QtGui.QWidget(self.groupBox)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(10, 40, 521, 128))
+        self.formLayoutWidget.setGeometry(QtCore.QRect(10, 20, 521, 128))
         self.formLayoutWidget.setObjectName(_fromUtf8("formLayoutWidget"))
         self.formLayout = QtGui.QFormLayout(self.formLayoutWidget)
         self.formLayout.setMargin(0)
@@ -60,23 +60,25 @@ class Ui_Dialog(object):
         self.LDefuncion = QtGui.QDateEdit(self.formLayoutWidget)
         self.LDefuncion.setObjectName(_fromUtf8("LDefuncion"))
         self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.LDefuncion)
-        self.BListo = QtGui.QPushButton(self.groupBox)
-        self.BListo.setGeometry(QtCore.QRect(380, 180, 71, 21))
-        self.BListo.setObjectName(_fromUtf8("BListo"))
-        self.BCancelar = QtGui.QPushButton(self.groupBox)
-        self.BCancelar.setGeometry(QtCore.QRect(460, 180, 75, 23))
+        self.BCancelar = QtGui.QPushButton(Dialog)
+        self.BCancelar.setGeometry(QtCore.QRect(480, 210, 75, 23))
         self.BCancelar.setObjectName(_fromUtf8("BCancelar"))
+        self.BListo = QtGui.QPushButton(Dialog)
+        self.BListo.setGeometry(QtCore.QRect(400, 210, 71, 21))
+        self.BListo.setObjectName(_fromUtf8("BListo"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.groupBox.setTitle(_translate("Dialog", "Datos Director", None))
+        self.groupBox.setTitle(_translate("Dialog", "Daros Director", None))
         self.label.setText(_translate("Dialog", "Nombre", None))
         self.label_2.setText(_translate("Dialog", "País", None))
-        self.label_3.setText(_translate("Dialog", "Fecha Nacimiento", None))
-        self.label_4.setText(_translate("Dialog", "Fecha Defunción", None))
-        self.BListo.setText(_translate("Dialog", "Listo", None))
+        self.label_3.setText(_translate("Dialog", "Fecha Nacmiento", None))
+        self.LNacimiento.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
+        self.label_4.setText(_translate("Dialog", "Fecha defunción", None))
+        self.LDefuncion.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
         self.BCancelar.setText(_translate("Dialog", "Cancelar", None))
+        self.BListo.setText(_translate("Dialog", "Listo", None))
 

@@ -13,7 +13,7 @@ class Director(QtGui.QDialog):
 		self.ui=Ui_Dialog()
 		self.ui.setupUi	(self)
 		self.signals()
-		self.accepted=False;
+		self.isAccepted=False;
 		#self.show()
 	
 	def signals(self):
@@ -21,15 +21,15 @@ class Director(QtGui.QDialog):
 		self.ui.BCancelar.clicked.connect(self.boton_cancelar_clicked)
 
 	def boton_listo_clicked(self):
-		self.accepted=True;
+		self.isAccepted=True;
 		self.accept()
 
 	def boton_cancelar_clicked(self):
-		self.accepted=False;
+		self.isAccepted=False;
 		self.reject()
 
 	def accepted(self):#devuelve true si se acepto, false si se canceló
-		return self.accepted;
+		return self.isAccepted;
 
 	def setTitle(self,title):
 		self.setWindowTitle(title)
