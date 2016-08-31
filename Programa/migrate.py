@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sqlite3
-db1="old.db"
-db2="new.db"
+db1="data.db"
+#db2="new.db"
 conn1=sqlite3.connect(db1)
-conn2=sqlite3.connect(db2)
+#conn2=sqlite3.connect(db2)
 cursor1=conn1.cursor()
-cursor2=conn2.cursor()
+#cursor2=conn2.cursor()
 fetch=None
 
 """
@@ -53,6 +53,7 @@ for f in fetch:alter table directors add column img
 		cursor2.execute(query2)
 """
 #migrar directores
+"""
 query='SELECT * FROM director'
 cursor1.execute(query)
 fetch=cursor1.fetchall()
@@ -71,3 +72,10 @@ for f in fetch:
 conn2.commit()
 conn1.close()
 conn2.close()
+"""
+for i in range(5,40):
+	query = 'UPDATE actors SET img="images/actores/{0}.jpg" WHERE id={0};'.format(i)
+	print query
+	cursor1.execute(query)
+	conn1.commit()
+conn1.close()
