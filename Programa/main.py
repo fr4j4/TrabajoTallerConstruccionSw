@@ -34,6 +34,7 @@ class Main(QtGui.QMainWindow):
 		self.director.exec_()
 		print self.director.getData("fdef")
 		"""
+		
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")
@@ -192,13 +193,13 @@ class Main(QtGui.QMainWindow):
 		self.ui.actor_filter_comboBox.clear()#vaciar el combobox
 		actors=self.dbm.getActors()
 		for actor in actors:
-			self.ui.actor_filter_comboBox.addItem(actor['name'],int(actor['id']))
+			self.ui.actor_filter_comboBox.addItem(actor[u'name'],int(actor['id']))
 
 	def actualiza_combobox_peliculas(self):
 		self.ui.movie_filter_comboBox.clear()#vaciar el combobox
 		movies=self.dbm.getMovies()
 		for mov in movies:
-			self.ui.movie_filter_comboBox.addItem(mov['name'],int(mov['id']))	
+			self.ui.movie_filter_comboBox.addItem(mov[u'name'],int(mov['id']))	
 
 	def actualiza_foto_actor(self,id):
 		img=self.dbm.getActorImage(id)
@@ -243,7 +244,7 @@ class Main(QtGui.QMainWindow):
 		row=self.ui.tabla_actores.currentRow()
 		id=self.ui.tabla_actores.item(row,0).text()
 		name=self.ui.tabla_actores.item(row,1).text()
-		self.ui.actor_name_label.setText(name);
+		self.ui.actor_name_label.setText( name );
 		self.actualiza_foto_actor(id)
 
 	def actor_combobox_clicked(self,actor_id):
