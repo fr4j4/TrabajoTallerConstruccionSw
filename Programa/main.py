@@ -278,10 +278,15 @@ class Main(QtGui.QMainWindow):
 
 	def nuevo_director(self):
 		self.director.setTitle("Agregar nuevo director")
+		self.director.clearData()
 		self.director.exec_()
 		if(self.director.accepted()):
 			print "agregar_director"
-			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),self.director.getData('img'))
+			fecha_defuncion=self.director.getData('fdef')
+			if(self.director.isDead()==False):
+				fecha_defuncion=""
+			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),fecha_defuncion,self.director.getData('img'))
+			self.actualizar_tablas()
 
 if __name__ == '__main__':
 	print "Iniciando..."

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'NuevoDirectorDialog.ui'
 #
-# Created: Thu Sep  1 00:12:01 2016
+# Created: Thu Sep  1 00:48:17 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -86,6 +86,7 @@ class Ui_Dialog(object):
 "     border-radius: 5px;\n"
 "     border-color: black;"))
         self.Display.setText(_fromUtf8(""))
+        self.Display.setScaledContents(True)
         self.Display.setObjectName(_fromUtf8("Display"))
 
         self.retranslateUi(Dialog)
