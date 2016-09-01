@@ -141,6 +141,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="LDisplay">
     <property name="geometry">
