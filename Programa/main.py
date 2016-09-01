@@ -87,6 +87,10 @@ class Main(QtGui.QMainWindow):
 
 	def actualizar_tabla_peliculas(self,filter=False):
 		#print "actualizando tabla de peliculas!"
+
+		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
+		self.ui.pelicula_name_label.setText('');
+
 		self.ui.tabla_peliculas.setColumnCount(4)
 		self.ui.tabla_peliculas.setColumnHidden(0,True)
 		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno").split(";"))
@@ -121,7 +125,9 @@ class Main(QtGui.QMainWindow):
 			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,3,item_estreno)
 
 	def actualizar_tabla_actores(self,filter=False):#actualizar tabla de actores
-		print "actualizando tabla de actores!"
+		#print "actualizando tabla de actores!"
+		self.ui.actor_image.setPixmap(self.default_actor_pixmap)
+		self.ui.actor_name_label.setText('');
 		#eliminar todas las filas (IMPORTANTE!)
 		while self.ui.tabla_actores.rowCount()>0:
 			self.ui.tabla_actores.removeRow(0)#elimino la primera fila (hasta que no quede ninguna)
@@ -164,6 +170,9 @@ class Main(QtGui.QMainWindow):
 #			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
 	def actualizar_tabla_directores(self):
+		self.ui.director_image.setPixmap(self.default_director_pixmap)
+		self.ui.director_name_label.setText('');
+
 		directors= self.dbm.getDirectors()
 		self.ui.tabla_directores.setColumnCount(5)
 		self.ui.tabla_directores.setColumnHidden(0,True)
