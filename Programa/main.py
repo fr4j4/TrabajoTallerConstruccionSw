@@ -280,7 +280,7 @@ class Main(QtGui.QMainWindow):
 		self.director.exec_()
 		if(self.director.accepted()):
 			print "agregar_director"
-			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),"img")
+			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),self.director.getData('img'))
 
 if __name__ == '__main__':
 	print "Iniciando..."

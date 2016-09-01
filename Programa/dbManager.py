@@ -174,3 +174,5 @@ class dbManager(object):
 	def addDirector(self,nombre,pais,fnac,fdef,img):
 		query="INSERT INTO directors (name,country,birth,death,img)  VALUES ('{0}','{1}','{2}','{3}','{4}'	)".format(nombre,pais,fnac,fdef,img)
 		print query
+		self.cursor.execute(query)
+		self.conn.commit()

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'NuevoDirectorDialog.ui'
 #
-# Created: Wed Aug 31 23:44:02 2016
+# Created: Thu Sep  1 00:12:01 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,7 +31,7 @@ class Ui_Dialog(object):
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 621, 301))
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
         self.formLayoutWidget_3 = QtGui.QWidget(self.groupBox)
-        self.formLayoutWidget_3.setGeometry(QtCore.QRect(10, 40, 441, 128))
+        self.formLayoutWidget_3.setGeometry(QtCore.QRect(10, 40, 441, 154))
         self.formLayoutWidget_3.setObjectName(_fromUtf8("formLayoutWidget_3"))
         self.formLayout = QtGui.QFormLayout(self.formLayoutWidget_3)
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
@@ -57,18 +57,21 @@ class Ui_Dialog(object):
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.LNacimiento)
         self.label_4 = QtGui.QLabel(self.formLayoutWidget_3)
         self.label_4.setObjectName(_fromUtf8("label_4"))
-        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_4)
-        self.LDefun = QtGui.QDateEdit(self.formLayoutWidget_3)
-        self.LDefun.setObjectName(_fromUtf8("LDefun"))
-        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.LDefun)
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.label_4)
+        self.LDefuncion = QtGui.QDateEdit(self.formLayoutWidget_3)
+        self.LDefuncion.setObjectName(_fromUtf8("LDefuncion"))
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.LDefuncion)
+        self.CheckDead = QtGui.QCheckBox(self.formLayoutWidget_3)
+        self.CheckDead.setObjectName(_fromUtf8("CheckDead"))
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.CheckDead)
         self.label_6 = QtGui.QLabel(self.groupBox)
-        self.label_6.setGeometry(QtCore.QRect(10, 180, 51, 20))
+        self.label_6.setGeometry(QtCore.QRect(10, 200, 51, 20))
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.LImagen = QtGui.QLineEdit(self.groupBox)
-        self.LImagen.setGeometry(QtCore.QRect(137, 180, 289, 20))
+        self.LImagen.setGeometry(QtCore.QRect(140, 200, 289, 20))
         self.LImagen.setObjectName(_fromUtf8("LImagen"))
         self.toolButton = QtGui.QToolButton(self.groupBox)
-        self.toolButton.setGeometry(QtCore.QRect(425, 180, 25, 21))
+        self.toolButton.setGeometry(QtCore.QRect(425, 199, 25, 21))
         self.toolButton.setObjectName(_fromUtf8("toolButton"))
         self.BListo = QtGui.QPushButton(self.groupBox)
         self.BListo.setGeometry(QtCore.QRect(460, 270, 75, 23))
@@ -96,7 +99,8 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Fecha Nacimiento", None))
         self.LNacimiento.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
         self.label_4.setText(_translate("Dialog", "Fecha Defunción", None))
-        self.LDefun.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
+        self.LDefuncion.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
+        self.CheckDead.setText(_translate("Dialog", "Difunto", None))
         self.label_6.setText(_translate("Dialog", "Imagen", None))
         self.toolButton.setText(_translate("Dialog", "...", None))
         self.BListo.setText(_translate("Dialog", "Aceptar", None))
