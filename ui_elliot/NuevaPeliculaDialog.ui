@@ -110,24 +110,11 @@
      <string>Cancelar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>45</y>
-      <width>51</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Poster</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="Display">
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>70</y>
+      <y>40</y>
       <width>111</width>
       <height>161</height>
      </rect>
@@ -141,12 +128,15 @@
     <property name="text">
      <string/>
     </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="LDisplay">
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>235</y>
+      <y>205</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -156,7 +146,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>235</y>
+      <y>205</y>
       <width>25</width>
       <height>21</height>
      </rect>
