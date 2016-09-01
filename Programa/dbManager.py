@@ -176,3 +176,10 @@ class dbManager(object):
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()
+
+	def updateDirector(self,id,nombre,pais,fnac,fdef,img):
+		query="UPDATE TABLE directors set (name='{0}',country='{1}',birth='{2}',death='{3}',img='{4}')".format(nombre,pais,fnac,fdef,img)
+		print query
+		#self.cursor.execute(query)
+		#self.conn.commit()
+

@@ -288,6 +288,10 @@ class Main(QtGui.QMainWindow):
 			self.dbm.addDirector(self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),fecha_defuncion,self.director.getData('img'))
 			self.actualizar_tablas()
 
+	def editar_director(self):
+		
+		#dbm.updateDirector()
+
 if __name__ == '__main__':
 	print "Iniciando..."
 	app = QtGui.QApplication(sys.argv)
