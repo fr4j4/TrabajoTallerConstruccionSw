@@ -69,6 +69,7 @@ class Main(QtGui.QMainWindow):
 		self.ui.filter_pelicula_checkBox.stateChanged.connect(self.pelicula_filter_checkBox_clicked)
 	
 		self.ui.BNuevo_3.clicked.connect(self.nuevo_director)
+		self.ui.BEditar_3.clicked.connect(self.editar_director)
 
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -289,9 +290,21 @@ class Main(QtGui.QMainWindow):
 			self.actualizar_tablas()
 
 	def editar_director(self):
-		self.director.setTitle("Editar director")
-		self.director.clearData()
-		self.director.exec_()
+		row=self.ui.tabla_directores.currentRow()
+		if(row>=0):
+			self.director.clearData()
+			id=self.ui.tabla_directores.item(row,0).text()
+			dir=self.dbm.getDirector(id)
+			print dir['name']
+			self.director.putData('nombre',dir['name'])
+			self.director.putData('fnac',dir['birth'])
+			self.director.putData('fdef',dir['death'])
+			self.director.putData('pais',dir['country'])
+			self.director.putData('img',dir['img'])
+
+
+			self.director.setTitle("Editar director")
+			self.director.exec_()
 		#dbm.updateDirector()
 
 if __name__ == '__main__':

@@ -43,6 +43,22 @@ class dbManager(object):
 			img=fetch[0]
 		return img
 	
+	def getDirector(self,id):
+		if self.connected:
+			query='SELECT * FROM directors WHERE id={0}'.format(id)
+			self.cursor.execute(query)
+			f=self.cursor.fetchone()
+			lista ={}
+			lista['id']=f[0]
+			lista['name']=unicode(f[1])
+			lista['country']=f[2].encode('utf-8')
+			lista['birth']=f[3].encode('utf-8')
+			lista['death']=f[4].encode('utf-8')
+			lista['img']=f[5].encode('utf-8')
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"
+
 	def getActors(self):
 		if self.connected:
 			lista=list()
