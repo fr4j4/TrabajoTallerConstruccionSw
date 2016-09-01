@@ -301,12 +301,11 @@ class Main(QtGui.QMainWindow):
 			self.director.putData('fdef',dir['death'])
 			self.director.putData('pais',dir['country'])
 			self.director.putData('img',dir['img'])
-
-
 			self.director.setTitle("Editar director")
 			self.director.exec_()
-		#dbm.updateDirector()
-
+			if(self.director.accepted()):
+				self.dbm.updateDirector(id,self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),self.director.getData('img'))
+				self.actualizar_tablas()
 if __name__ == '__main__':
 	print "Iniciando..."
 	app = QtGui.QApplication(sys.argv)
