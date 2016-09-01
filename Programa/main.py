@@ -289,7 +289,9 @@ class Main(QtGui.QMainWindow):
 			self.actualizar_tablas()
 
 	def editar_director(self):
-		
+		self.director.setTitle("Editar director")
+		self.director.clearData()
+		self.director.exec_()
 		#dbm.updateDirector()
 
 if __name__ == '__main__':
