@@ -52,7 +52,7 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1].encode('utf-8')
+				tmp['name']=unicode(f[1])
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
@@ -71,8 +71,8 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1].encode('utf-8')
-				tmp['country']=f[2].encode('utf-8')
+				tmp['name']=unicode(f[1])
+				tmp['country']=unicode(f[2])
 				tmp['birth']=f[3].encode('utf-8')
 				tmp['death']=f[4].encode('utf-8')
 				lista.append(tmp)#agrego el diccionario temporal a la lista
@@ -91,8 +91,8 @@ class dbManager(object):
 				tmp['id']=f[0]
 				tmp['id_actor']=f[1].encode('utf-8')
 				tmp['id_pelicula']=f[2].encode('utf-8')
-				tmp['personaje']=f[3].encode('utf-8')
-				tmp['descripcion']=f[4].encode('utf-8')
+				tmp['personaje']=unicode(f[3])
+				tmp['descripcion']=unicode(f[4])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -107,10 +107,10 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1].encode('utf-8')
-				tmp['desc']=f[2].encode('utf-8')
+				tmp['name']=unicode(f[1])
+				tmp['desc']=unicode(f[2])
 				tmp['estreno']=f[3].encode('utf-8')
-				tmp['country']=f[4].encode('utf-8')
+				tmp['country']=unicode(f[4])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -133,10 +133,10 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1].encode('utf-8')
-				tmp['desc']=f[2].encode('utf-8')
+				tmp['name']=unicode(f[1])
+				tmp['desc']=unicode(f[2])
 				tmp['estreno']=f[3].encode('utf-8')
-				tmp['country']=f[4].encode('utf-8')
+				tmp['country']=unicode(f[4])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -151,7 +151,7 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['name']=f[1].encode('utf-8')
+				tmp['name']=unicode(f[1])
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
