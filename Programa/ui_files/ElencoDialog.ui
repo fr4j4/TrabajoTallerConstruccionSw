@@ -23,14 +23,14 @@
     </rect>
    </property>
    <property name="title">
-    <string>Nueva Película</string>
+    <string>Nuevo Personaje</string>
    </property>
-   <widget class="QWidget" name="formLayoutWidget_3">
+   <widget class="QWidget" name="formLayoutWidget_5">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>441</width>
+      <width>591</width>
       <height>221</height>
      </rect>
     </property>
@@ -41,53 +41,39 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_1">
        <property name="text">
-        <string>Nombre</string>
+        <string>Nombre Personaje</string>
        </property>
       </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="LNPersonaje"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Estreno</string>
+        <string>Actor</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QDateEdit" name="LEstreno">
-       <property name="displayFormat">
-        <string>yyyy-MM-dd</string>
-       </property>
-      </widget>
+      <widget class="QComboBox" name="actor_filter_comboBox"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Pais</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Descripción</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QTextEdit" name="LDescripcion"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="LNombre"/>
-     </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="LPais"/>
+      <widget class="QTextEdit" name="LDescripcion"/>
      </item>
     </layout>
    </widget>
    <widget class="QPushButton" name="BListo">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>444</x>
       <y>270</y>
       <width>71</width>
       <height>21</height>
@@ -100,7 +86,7 @@
    <widget class="QPushButton" name="BCancelar">
     <property name="geometry">
      <rect>
-      <x>374</x>
+      <x>518</x>
       <y>270</y>
       <width>75</width>
       <height>23</height>
@@ -110,49 +96,17 @@
      <string>Cancelar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="Display">
+   <widget class="QPushButton" name="BIngresar">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>40</y>
-      <width>111</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"> border-style: solid;
-     border-width: 2px;
-     border-radius: 5px;
-     border-color: black;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="LDisplay">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>205</y>
-      <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="BBox">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>205</y>
-      <width>25</width>
+      <x>370</x>
+      <y>270</y>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>...</string>
+     <string>Ingresar</string>
     </property>
    </widget>
   </widget>
