@@ -75,7 +75,7 @@ class Director(QtGui.QDialog):
 		self.ui.Display.setPixmap(QtGui.QPixmap(("")))
 
 	def putData(self,data,value):
-		print "[put-data] "+data+"="+value
+		#print "[put-data] "+data+"="+value
 		if(data=="nombre"):
 			self.ui.LNombre.setText(value)
 		elif(data=="pais"):
@@ -87,10 +87,3 @@ class Director(QtGui.QDialog):
 		elif(data=="img"):
 			self.ui.LImagen.setText(value)
 			self.ui.Display.setPixmap(QtGui.QPixmap((value)))
-
-"""
-myPythonicDate='2014-04-17'
-qtDate = QtCore.QDate.fromString(myPythonicDate, 'yyyy-MM-dd')
-print qtDate.year(), qtDate.month(), qtDate.day()
-"""
-

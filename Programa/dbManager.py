@@ -72,7 +72,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
-				tmp['num_pelis']=f[5]
+				#tmp['num_pelis']=f[5]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -171,7 +171,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
-				tmp['num_pelis']=f[5]
+				#tmp['num_pelis']=f[5]
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
@@ -195,6 +195,12 @@ class dbManager(object):
 
 	def updateDirector(self,id,nombre,pais,fnac,fdef,img):
 		query="UPDATE directors set name='{0}',country='{1}',birth='{2}',death='{3}',img='{4}' WHERE id={5}".format(nombre,pais,fnac,fdef,img,id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def deleteDirector(self,id):
+		query="DELETE FROM directors where id = {0} ;".format(id)
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()

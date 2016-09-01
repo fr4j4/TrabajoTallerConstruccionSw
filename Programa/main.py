@@ -70,6 +70,9 @@ class Main(QtGui.QMainWindow):
 	
 		self.ui.BNuevo_3.clicked.connect(self.nuevo_director)
 		self.ui.BEditar_3.clicked.connect(self.editar_director)
+		self.ui.BEliminar_3.clicked.connect(self.eliminar_director)
+
+		self.ui.tabla_directores.doubleClicked.connect(self.editar_director)
 
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -83,7 +86,7 @@ class Main(QtGui.QMainWindow):
 		self.actualiza_combobox_peliculas()
 
 	def actualizar_tabla_peliculas(self,filter=False):
-		print "actualizando tabla de peliculas!"
+		#print "actualizando tabla de peliculas!"
 		self.ui.tabla_peliculas.setColumnCount(4)
 		self.ui.tabla_peliculas.setColumnHidden(0,True)
 		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno").split(";"))
@@ -156,9 +159,9 @@ class Main(QtGui.QMainWindow):
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 
-			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
-			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
-			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
+#			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
+#			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
+#			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
 	def actualizar_tabla_directores(self):
 		directors= self.dbm.getDirectors()
@@ -303,9 +306,28 @@ class Main(QtGui.QMainWindow):
 			self.director.putData('img',dir['img'])
 			self.director.setTitle("Editar director")
 			self.director.exec_()
+
+			defuncion=self.director.getData('fdef')
+			if(self.director.isDead()==False):
+				defuncion=""
+
 			if(self.director.accepted()):
-				self.dbm.updateDirector(id,self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),self.director.getData('fdef'),self.director.getData('img'))
+				self.dbm.updateDirector(id,self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),defuncion,self.director.getData('img'))
 				self.actualizar_tablas()
+
+	def eliminar_director(self):
+		row=self.ui.tabla_directores.currentRow()
+		if row>=0:
+		 	resp = QtGui.QMessageBox.question(self, "Eliminar director","Desea eliminar el director seleccionado?",QMessageBox.Yes | QMessageBox.No)
+			if (resp==QtGui.QMessageBox.Yes):
+				print "borrar"
+				id=self.ui.tabla_directores.item(row,0).text()
+				self.dbm.deleteDirector(id)
+				self.actualizar_tablas()
+
+	def printSomething(self):
+		print "something"
+
 if __name__ == '__main__':
 	print "Iniciando..."
 	app = QtGui.QApplication(sys.argv)
