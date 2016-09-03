@@ -205,3 +205,8 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()
 
+	def addActor(self,name,birth,genre,img):
+		query="INSERT INTO actors (name,birth,genre,img)  VALUES ('{0}','{1}','{2}','{3}');".format(name,birth,genre,img)
+		print query
+
+

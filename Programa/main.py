@@ -7,6 +7,7 @@ from PyQt4.QtGui import *
 from main_ui import Ui_MainWindow
 from controllers.login_controller import Login
 from controllers.director_controller import Director 
+from controllers.actor_controller import Actor 
 from dbManager import dbManager
 
 class Main(QtGui.QMainWindow):
@@ -17,8 +18,8 @@ class Main(QtGui.QMainWindow):
 		self.ui.setupUi(self)
 		self.login=Login()
 		self.director=Director()
-
-		self.init();
+		self.actor=Actor()
+		self.init()
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
 		"""
 		self.login.exec_()
@@ -34,7 +35,6 @@ class Main(QtGui.QMainWindow):
 		self.director.exec_()
 		print self.director.getData("fdef")
 		"""
-		
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")
@@ -73,6 +73,8 @@ class Main(QtGui.QMainWindow):
 		self.ui.BEliminar_3.clicked.connect(self.eliminar_director)
 
 		self.ui.tabla_directores.doubleClicked.connect(self.editar_director)
+
+		self.ui.BNuevo_2.clicked.connect(self.nuevo_actor)
 
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -333,6 +335,14 @@ class Main(QtGui.QMainWindow):
 				id=self.ui.tabla_directores.item(row,0).text()
 				self.dbm.deleteDirector(id)
 				self.actualizar_tablas()
+
+	def nuevo_actor(self):
+		self.actor.setTitle("Agregar nuevo actor")
+		self.actor.clearData()
+		self.actor.exec_()
+		if(self.actor.accepted()):
+			#self.dbm.addActor(self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('fnac'),fecha_defuncion,self.actor.getData('img'))
+			self.actualizar_tablas()
 
 	def printSomething(self):
 		print "something"
