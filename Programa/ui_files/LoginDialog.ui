@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="ResFiles.qrc">
+    <normaloff>:/Icons/favicon.ico</normaloff>:/Icons/favicon.ico</iconset>
+  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -23,7 +27,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>                                                                 </string>
+    <string/>
    </property>
    <widget class="QWidget" name="formLayoutWidget_3">
     <property name="geometry">
@@ -136,6 +140,8 @@ font-weight:bold;</string>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="ResFiles.qrc"/>
+ </resources>
  <connections/>
 </ui>
