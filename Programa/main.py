@@ -167,9 +167,9 @@ class Main(QtGui.QMainWindow):
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 
-#			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
-#			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
-#			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
+			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
+			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
 	def actualizar_tabla_directores(self):
 		self.ui.director_image.setPixmap(self.default_director_pixmap)

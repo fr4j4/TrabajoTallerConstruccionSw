@@ -72,12 +72,23 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
-				#tmp['num_pelis']=f[5]
+				tmp['num_pelis']= self.getTotalMovies(tmp['id'])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
+	def getTotalMovies(self,actor_id):
+		if self.connected:
+			lista=list()
+			query = 'SELECT COUNT(movie_id) as NPeliculas FROM actor_character WHERE actor_id =' + str(actor_id)
+			self.cursor.execute(query)
+			fetch=self.cursor.fetchall()
+			for f in fetch:
+				tmp={}
+				tmp['num_pelis']=f[0]
+				return tmp['num_pelis']
+			
 	def getDirectors(self):
 		if self.connected:
 			lista=list()
@@ -158,7 +169,7 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
-	def getActorsByMovie(self,movie_id):#filtrar la busqueda por id del actor
+	def getActorsByMovie(self,movie_id):#filtrar la busqueda por id de la pelicula
 		if self.connected:
 			lista=list()
 			query='select actors.* from actors join actor_character where  actor_character.actor_id=actors.id and actor_character.movie_id='+str(movie_id)
@@ -171,7 +182,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
-				#tmp['num_pelis']=f[5]
+				tmp['num_pelis']= self.getTotalMovies(tmp['id'])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
