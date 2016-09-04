@@ -79,6 +79,11 @@ class Main(QtGui.QMainWindow):
 		self.ui.BEditar_2.clicked.connect(self.editar_actor)
 		self.ui.BEliminar_2.clicked.connect(self.eliminar_actor)
 
+		#Señales para peliculas!!!
+		self.ui.BNuevo.clicked.connect(self.nueva_pelicula)
+		self.ui.BEditar.clicked.connect(self.editar_pelicula)
+		self.ui.BEliminar.clicked.connect(self.eliminar_pelicula)
+
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
 			la info del modelo "dbManager"
@@ -380,6 +385,43 @@ class Main(QtGui.QMainWindow):
 				self.actualizar_tablas()
 	def printSomething(self):
 		print "something"
+
+	def nueva_pelicula(self):
+		self.pelicula.setTitle("Agregar nueva pelicula")
+		self.pelicula.clearData()
+		self.pelicula.exec_()
+		if(self.pelicula.accepted()):
+			self.dbm.addMovie(self.pelicula.getData('nombre'),self.pelicula.getData('desc'),self.pelicula.getData('estreno'),self.pelicula.getData('country'),self.pelicula.getData('img'))
+			self.actualizar_tablas()
+	
+	def editar_pelicula(self):
+		row=self.ui.tabla_peliculas.currentRow()
+		if(row>=0):
+			self.pelicula.clearData()
+			id=self.ui.tabla_peliculas.item(row,0).text()
+			dir=self.dbm.getMovie(id)
+			print dir['name']
+			self.pelicula.putData('nombre',dir['name'])
+			self.pelicula.putData('descripcion',dir['desc'])
+			self.pelicula.putData('estreno',dir['estreno'])
+			self.pelicula.putData('pais',dir['country'])
+			self.pelicula.putData('img',dir['img'])
+			self.pelicula.setTitle("Editar pelicula")
+			self.pelicula.exec_()
+
+			if(self.pelicula.accepted()):
+				self.dbm.updateMovie(id,self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
+				self.actualizar_tablas()
+
+	def eliminar_pelicula(self):
+		row=self.ui.tabla_peliculas.currentRow()
+		if row>=0:
+		 	resp = QtGui.QMessageBox.question(self, "Eliminar pelicula","Desea eliminar la pelicula seleccionada?",QMessageBox.Yes | QMessageBox.No)
+			if (resp==QtGui.QMessageBox.Yes):
+				print "borrar"
+				id=self.ui.tabla_peliculas.item(row,0).text()
+				self.dbm.deleteMovie(id)
+				self.actualizar_tablas()
 
 if __name__ == '__main__':
 	print "Iniciando..."

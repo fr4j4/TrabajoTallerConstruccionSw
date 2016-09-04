@@ -58,7 +58,23 @@ class dbManager(object):
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
-	#nuevo
+
+	def getMovie(self,id):
+		if self.connected:
+			query='SELECT * FROM movies WHERE id={0}'.format(id)
+			self.cursor.execute(query)
+			f=self.cursor.fetchone()
+			lista ={}
+			lista['id']=f[0]
+			lista['name']=unicode(f[1])
+			lista['desc']=unicode(f[2])
+			lista['estreno']=f[3]
+			lista['country']=unicode(f[4])
+			lista['img']=unicode(f[5])
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"
+
 	def getActor(self,id):
 		if self.connected:
 			query='SELECT * FROM actors WHERE id={0}'.format(id)
