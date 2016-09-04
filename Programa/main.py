@@ -341,7 +341,7 @@ class Main(QtGui.QMainWindow):
 		self.actor.clearData()
 		self.actor.exec_()
 		if(self.actor.accepted()):
-			#self.dbm.addActor(self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('fnac'),fecha_defuncion,self.actor.getData('img'))
+			self.dbm.addActor(self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('genero'),self.actor.getData('img'))
 			self.actualizar_tablas()
 
 	def printSomething(self):

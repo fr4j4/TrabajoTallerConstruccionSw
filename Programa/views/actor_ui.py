@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'NuevoActorDialog.ui'
 #
-# Created: Fri Sep  2 23:32:49 2016
+# Created: Sun Sep  4 11:56:22 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,10 +28,10 @@ class Ui_Dialog(object):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(645, 325)
         self.groupBox = QtGui.QGroupBox(Dialog)
-        self.groupBox.setGeometry(QtCore.QRect(10, 10, 621, 301))
+        self.groupBox.setGeometry(QtCore.QRect(10, 20, 621, 301))
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
         self.formLayoutWidget_3 = QtGui.QWidget(self.groupBox)
-        self.formLayoutWidget_3.setGeometry(QtCore.QRect(10, 40, 441, 95))
+        self.formLayoutWidget_3.setGeometry(QtCore.QRect(10, 40, 441, 131))
         self.formLayoutWidget_3.setObjectName(_fromUtf8("formLayoutWidget_3"))
         self.formLayout = QtGui.QFormLayout(self.formLayoutWidget_3)
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
@@ -55,20 +55,26 @@ class Ui_Dialog(object):
         self.LFecha = QtGui.QDateEdit(self.formLayoutWidget_3)
         self.LFecha.setObjectName(_fromUtf8("LFecha"))
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.LFecha)
+        self.label_5 = QtGui.QLabel(self.formLayoutWidget_3)
+        self.label_5.setObjectName(_fromUtf8("label_5"))
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.label_5)
+        self.LGenero = QtGui.QComboBox(self.formLayoutWidget_3)
+        self.LGenero.setObjectName(_fromUtf8("LGenero"))
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.LGenero)
         self.label_4 = QtGui.QLabel(self.groupBox)
-        self.label_4.setGeometry(QtCore.QRect(10, 145, 51, 20))
+        self.label_4.setGeometry(QtCore.QRect(10, 180, 51, 20))
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.LImagen = QtGui.QLineEdit(self.groupBox)
-        self.LImagen.setGeometry(QtCore.QRect(137, 145, 289, 20))
+        self.LImagen.setGeometry(QtCore.QRect(137, 180, 289, 20))
         self.LImagen.setObjectName(_fromUtf8("LImagen"))
         self.toolButton = QtGui.QToolButton(self.groupBox)
-        self.toolButton.setGeometry(QtCore.QRect(425, 145, 25, 21))
+        self.toolButton.setGeometry(QtCore.QRect(425, 180, 25, 21))
         self.toolButton.setObjectName(_fromUtf8("toolButton"))
         self.BListo = QtGui.QPushButton(self.groupBox)
-        self.BListo.setGeometry(QtCore.QRect(460, 270, 71, 21))
+        self.BListo.setGeometry(QtCore.QRect(456, 260, 71, 21))
         self.BListo.setObjectName(_fromUtf8("BListo"))
         self.BCancelar = QtGui.QPushButton(self.groupBox)
-        self.BCancelar.setGeometry(QtCore.QRect(534, 270, 75, 23))
+        self.BCancelar.setGeometry(QtCore.QRect(530, 260, 75, 23))
         self.BCancelar.setObjectName(_fromUtf8("BCancelar"))
         self.Display = QtGui.QLabel(self.groupBox)
         self.Display.setGeometry(QtCore.QRect(490, 40, 111, 161))
@@ -90,6 +96,7 @@ class Ui_Dialog(object):
         self.label_2.setText(_translate("Dialog", "País", None))
         self.label_3.setText(_translate("Dialog", "Fecha Nacimiento", None))
         self.LFecha.setDisplayFormat(_translate("Dialog", "yyyy-MM-dd", None))
+        self.label_5.setText(_translate("Dialog", "Genero", None))
         self.label_4.setText(_translate("Dialog", "Imagen", None))
         self.toolButton.setText(_translate("Dialog", "...", None))
         self.BListo.setText(_translate("Dialog", "Listo", None))
