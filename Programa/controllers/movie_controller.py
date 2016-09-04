@@ -48,9 +48,9 @@ class Pelicula(QtGui.QDialog):
 		elif(data=="pais"):
 			return self.ui.LPais.text()
 		elif(data=="descripcion"):
-			return self.ui.LDescripcion.text()
+			return self.ui.LDescripcion.toPlainText()
 		elif(data=="img"):
-			return self.ui.LImagen.text()		
+			return self.ui.LDisplay.text()		
 
 	def clearData(self):
 		self.putData('nombre','')
@@ -71,5 +71,5 @@ class Pelicula(QtGui.QDialog):
 		elif(data=="descripcion"):
 			self.ui.LDescripcion.setText(value)
 		elif(data=="img"):
-			self.ui.LImagen.setText(value)
+			self.ui.LDisplay.setText(value)
 			self.ui.Display.setPixmap(QtGui.QPixmap((value)))

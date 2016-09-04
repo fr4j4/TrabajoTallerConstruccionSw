@@ -260,14 +260,14 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()
 
-	def addMovie(self,nombre,descr,pais,img):
-		query="INSERT INTO movies (name,desc,estreno,country,img)  VALUES ('{0}','{1}','{2}','{3}','{4}')".format(nombre,descr,pais,img)
+	def addMovie(self,nombre,descr,estreno,pais,img):
+		query="INSERT INTO movies (name,desc,estreno,country,img)  VALUES ('{0}','{1}','{2}','{3}','{4}')".format(nombre,descr,estreno,pais,img)
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()
 
-	def updateMovie(self,id,nombre,descr,pais,img):
-		query="UPDATE movies set name='{0}', desc='{1}', country='{2}', img='{3}' WHERE id={4}".format(nombre,descr,pais,img,id)
+	def updateMovie(self,id,nombre,descr,estreno,pais,img):
+		query="UPDATE movies set name='{0}', 'desc'='{1}', country='{2}', img='{3}',estreno='{4}' WHERE id={5}".format(nombre,descr,pais,img,estreno,id)
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()

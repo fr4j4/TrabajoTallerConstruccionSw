@@ -393,7 +393,7 @@ class Main(QtGui.QMainWindow):
 		self.pelicula.clearData()
 		self.pelicula.exec_()
 		if(self.pelicula.accepted()):
-			self.dbm.addMovie(self.pelicula.getData('nombre'),self.pelicula.getData('desc'),self.pelicula.getData('estreno'),self.pelicula.getData('country'),self.pelicula.getData('img'))
+			self.dbm.addMovie(self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
 			self.actualizar_tablas()
 	
 	def editar_pelicula(self):
