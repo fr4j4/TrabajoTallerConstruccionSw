@@ -74,7 +74,10 @@ class Main(QtGui.QMainWindow):
 
 		self.ui.tabla_directores.doubleClicked.connect(self.editar_director)
 
+		#relacionado con actores
 		self.ui.BNuevo_2.clicked.connect(self.nuevo_actor)
+		self.ui.BEditar_2.clicked.connect(self.editar_actor)
+		self.ui.BEliminar_2.clicked.connect(self.eliminar_actor)
 
 	def actualizar_tablas(self):
 		"""	actualiza todas las tablas obteniendo
@@ -347,7 +350,34 @@ class Main(QtGui.QMainWindow):
 		if(self.actor.accepted()):
 			self.dbm.addActor(self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('genero'),self.actor.getData('img'))
 			self.actualizar_tablas()
+	#nuevo
+	def editar_actor(self):
+		row=self.ui.tabla_actores.currentRow()
+		if(row>=0):
+			self.actor.clearData()
+			id=self.ui.tabla_actores.item(row,0).text()
+			dir=self.dbm.getActor(id)
+			print dir['name']
+			self.actor.putData('nombre',dir['name'])
+			self.actor.putData('fnac',dir['birth'])
+			self.actor.putData('genero',dir['genre'])
+			self.actor.putData('img',dir['img'])
+			self.actor.setTitle("Editar actor")
+			self.actor.exec_()
 
+			if(self.actor.accepted()):
+				self.dbm.updateActor(id,self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('genero'),self.actor.getData('img'))
+				self.actualizar_tablas()
+
+	def eliminar_actor(self):
+		row=self.ui.tabla_actores.currentRow()
+		if row>=0:
+		 	resp = QtGui.QMessageBox.question(self, "Eliminar actor","Desea eliminar el actor seleccionado?",QMessageBox.Yes | QMessageBox.No)
+			if (resp==QtGui.QMessageBox.Yes):
+				print "borrar"
+				id=self.ui.tabla_actores.item(row,0).text()
+				self.dbm.deleteActor(id)
+				self.actualizar_tablas()
 	def printSomething(self):
 		print "something"
 

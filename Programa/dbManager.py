@@ -58,6 +58,21 @@ class dbManager(object):
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
+	#nuevo
+	def getActor(self,id):
+		if self.connected:
+			query='SELECT * FROM actors WHERE id={0}'.format(id)
+			self.cursor.execute(query)
+			f=self.cursor.fetchone()
+			lista ={}
+			lista['id']=f[0]
+			lista['name']=unicode(f[1])
+			lista['birth']=f[2].encode('utf-8')
+			lista['genre']=f[3].encode('utf-8')
+			lista['img']=f[4].encode('utf-8')
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"	
 
 	def getActors(self):
 		if self.connected:
@@ -252,5 +267,17 @@ class dbManager(object):
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()
+	
+	def updateActor(self,id,nombre,fnac, genero, img):
+		query="UPDATE actors set name='{0}',birth='{1}',genre='{2}',img='{3}' WHERE id={4}".format(nombre,fnac,genero,img,id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def deleteActor(self,id):
+		query="DELETE FROM actors where id = {0} ;".format(id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()	
 
 
