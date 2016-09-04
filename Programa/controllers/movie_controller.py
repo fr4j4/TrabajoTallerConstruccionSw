@@ -14,8 +14,6 @@ class Pelicula(QtGui.QDialog):
 		self.ui.setupUi	(self)
 		self.signals()
 		self.isAccepted=False;
-		self.dead=False;
-		self.ui.LDefuncion.setEnabled(False)
 		#self.show()
 	
 	def signals(self):
