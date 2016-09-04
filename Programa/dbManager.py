@@ -229,6 +229,24 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()
 
+	def addMovie(self,nombre,descr,pais,img):
+		query="INSERT INTO movies (name,desc,estreno,country,img)  VALUES ('{0}','{1}','{2}','{3}','{4}')".format(nombre,descr,pais,img)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def updateMovie(self,id,nombre,descr,pais,img):
+		query="UPDATE movies set name='{0}', desc='{1}', country='{2}', img='{3}' WHERE id={4}".format(nombre,descr,pais,img,id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def deleteMovie(self,id):
+		query="DELETE FROM movies where id = {0} ;".format(id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
 	def addActor(self,name,birth,genre,img):
 		query="INSERT INTO actors (name,birth,genre,img)  VALUES ('{0}','{1}','{2}','{3}');".format(name,birth,genre,img)
 		#print query

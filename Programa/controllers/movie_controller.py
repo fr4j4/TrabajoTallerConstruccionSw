@@ -21,23 +21,11 @@ class Pelicula(QtGui.QDialog):
 	def signals(self):
 		self.ui.BListo.clicked.connect(self.boton_listo_clicked)
 		self.ui.BCancelar.clicked.connect(self.boton_cancelar_clicked)
-		self.ui.CheckDead.stateChanged.connect(self.check_dead_clicked)
-		self.ui.toolButton.clicked.connect(self.boton_buscar_imagen_clicked)
+		self.ui.BBox.clicked.connect(self.boton_buscar_imagen_clicked)
 
 	def boton_listo_clicked(self):
 		self.isAccepted=True;
 		self.accept()
-
-	def check_dead_clicked(self):
-		if(self.ui.CheckDead.isChecked()):
-			self.dead=True
-			self.ui.LDefuncion.setEnabled(True)
-		else:
-			self.dead=False
-			self.ui.LDefuncion.setEnabled(False)
-
-	def isDead(self):
-		return self.dead
 
 	def boton_buscar_imagen_clicked(self):
 		fname = QFileDialog.getOpenFileName(self, 'Open file','',"Image files (*.jpg *.gif)")
@@ -57,20 +45,20 @@ class Pelicula(QtGui.QDialog):
 	def getData(self,data):
 		if(data=="nombre"):
 			return self.ui.LNombre.text()
+		elif(data=="estreno"):
+			return self.ui.LEstreno.text()
 		elif(data=="pais"):
 			return self.ui.LPais.text()
-		elif(data=="fnac"):
-			return self.ui.LNacimiento.text()
-		elif(data=="fdef"):
-			return self.ui.LDefuncion.text()	
+		elif(data=="descripcion"):
+			return self.ui.LDescripcion.text()
 		elif(data=="img"):
 			return self.ui.LImagen.text()		
 
 	def clearData(self):
 		self.putData('nombre','')
+		self.putData('estreno','2000-01-01')
 		self.putData('pais','')
-		self.putData('fnac','2000-01-01')
-		self.putData('fdef','2000-01-01')
+		self.putData('descripcion','')
 		self.putData('img','')
 		self.ui.Display.setPixmap(QtGui.QPixmap(("")))
 
@@ -78,12 +66,12 @@ class Pelicula(QtGui.QDialog):
 		#print "[put-data] "+data+"="+value
 		if(data=="nombre"):
 			self.ui.LNombre.setText(value)
+		elif(data=="estreno"):
+			self.ui.LEstreno.setDate(QtCore.QDate.fromString(value,'yyyy-MM-dd'))
 		elif(data=="pais"):
 			self.ui.LPais.setText(value)
-		elif(data=="fnac"):
-			self.ui.LNacimiento.setDate(QtCore.QDate.fromString(value,'yyyy-MM-dd'))
-		elif(data=="fdef"):
-			self.ui.LDefuncion.setDate(QtCore.QDate.fromString(value,'yyyy-MM-dd'))
+		elif(data=="descripcion"):
+			self.ui.LDescripcion.setText(value)
 		elif(data=="img"):
 			self.ui.LImagen.setText(value)
 			self.ui.Display.setPixmap(QtGui.QPixmap((value)))
