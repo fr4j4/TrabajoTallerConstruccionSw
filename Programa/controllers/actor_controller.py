@@ -45,8 +45,6 @@ class Actor(QtGui.QDialog):
 	def getData(self,data):
 		if(data=="nombre"):
 			return self.ui.LNombre.text()
-		elif(data=="pais"):
-			return self.ui.LPais.text()
 		elif(data=="fnac"):
 			return self.ui.LFecha.text()
 		elif(data=="img"):
@@ -61,7 +59,6 @@ class Actor(QtGui.QDialog):
 
 	def clearData(self):
 		self.putData('nombre','')
-		self.putData('pais','')
 		self.putData('fnac','2000-01-01')
 		self.putData('img','')
 		self.putData('genero','')
@@ -72,8 +69,6 @@ class Actor(QtGui.QDialog):
 		print "actor: [put-data] "+data+"="+value
 		if(data=="nombre"):
 			self.ui.LNombre.setText(value)
-		elif(data=="pais"):
-			self.ui.LPais.setText(value)
 		elif(data=="fnac"):
 			self.ui.LFecha.setDate(QtCore.QDate.fromString(value,'yyyy-MM-dd'))
 		elif(data=="img"):

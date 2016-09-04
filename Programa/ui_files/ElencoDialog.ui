@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="ResFiles.qrc">
-    <normaloff>:/Icons/favicon.ico</normaloff>:/Icons/favicon.ico</iconset>
-  </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
@@ -115,8 +111,6 @@
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="ResFiles.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

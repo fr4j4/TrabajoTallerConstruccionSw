@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>Administración</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="ResFiles.qrc">
-    <normaloff>:/Icons/favicon.ico</normaloff>:/Icons/favicon.ico</iconset>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
@@ -421,7 +417,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
