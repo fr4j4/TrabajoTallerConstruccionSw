@@ -93,9 +93,9 @@ class Main(QtGui.QMainWindow):
 		self.ui.pelicula_image.setPixmap(self.default_pelicula_pixmap)
 		self.ui.pelicula_name_label.setText('');
 
-		self.ui.tabla_peliculas.setColumnCount(4)
+		self.ui.tabla_peliculas.setColumnCount(5)
 		self.ui.tabla_peliculas.setColumnHidden(0,True)
-		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno").split(";"))
+		self.ui.tabla_peliculas.setHorizontalHeaderLabels(QString("ID;Titulo;Pais;Estreno;N. Actores").split(";"))
 		while self.ui.tabla_peliculas.rowCount()>0:
 			self.ui.tabla_peliculas.removeRow(0)
 		
@@ -126,6 +126,10 @@ class Main(QtGui.QMainWindow):
 			item_estreno.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,3,item_estreno)
 
+			item_numActors=QTableWidgetItem(str(mov['num_actors']))
+			item_numActors.setFlags(QtCore.Qt.ItemIsEnabled)
+			self.ui.tabla_peliculas.setItem(self.ui.tabla_peliculas.rowCount()-1,4,item_numActors)
+
 	def actualizar_tabla_actores(self,filter=False):#actualizar tabla de actores
 		#print "actualizando tabla de actores!"
 		self.ui.actor_image.setPixmap(self.default_actor_pixmap)
@@ -146,7 +150,7 @@ class Main(QtGui.QMainWindow):
 		self.ui.tabla_actores.setColumnCount(5)
 		self.ui.tabla_actores.setColumnHidden(0,True)#ocultar columna de ID (no es necesario que el usuario la vea)
 		#dar nombre a los encabezados de la tabla
-		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID;Nombre;Nacimiento;Genero;N. peliculas").split(";"))
+		self.ui.tabla_actores.setHorizontalHeaderLabels(QString("ID;Nombre;Nacimiento;Genero;N. Peliculas").split(";"))
 		#insertar nuevamente todas las filas
 		for actor in actors:
 			self.ui.tabla_actores.insertRow(self.ui.tabla_actores.rowCount())#inserto una fila vacía

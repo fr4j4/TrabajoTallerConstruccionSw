@@ -138,10 +138,22 @@ class dbManager(object):
 				tmp['desc']=unicode(f[2])
 				tmp['estreno']=f[3].encode('utf-8')
 				tmp['country']=unicode(f[4])
+				tmp['num_actors']= self.getTotalActorsByMovie(tmp['id'])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
+
+	def getTotalActorsByMovie(self,movie_id):
+		if self.connected:
+			lista=list()
+			query = 'SELECT COUNT(actor_id) FROM actor_character WHERE movie_id ='+str(movie_id)
+			self.cursor.execute(query)
+			fetch=self.cursor.fetchall()
+			for f in fetch:
+				tmp={}
+				tmp['num_actors']=f[0]
+				return tmp['num_actors']
 
 	def checkLogin(self,user,pwd):
 		b=False
@@ -164,6 +176,7 @@ class dbManager(object):
 				tmp['desc']=unicode(f[2])
 				tmp['estreno']=f[3].encode('utf-8')
 				tmp['country']=unicode(f[4])
+				tmp['num_actors']= self.getTotalActorsByMovie(tmp['id'])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
