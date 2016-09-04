@@ -8,6 +8,7 @@ from main_ui import Ui_MainWindow
 from controllers.login_controller import Login
 from controllers.director_controller import Director 
 from controllers.actor_controller import Actor 
+from controllers.movie_controller import Pelicula
 from dbManager import dbManager
 
 class Main(QtGui.QMainWindow):
@@ -19,6 +20,7 @@ class Main(QtGui.QMainWindow):
 		self.login=Login()
 		self.director=Director()
 		self.actor=Actor()
+		self.pelicula=Pelicula()
 		self.init()
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
 		"""
