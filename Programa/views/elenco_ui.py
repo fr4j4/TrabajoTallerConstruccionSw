@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/ElencoDialog.ui'
 #
-# Created: Mon Sep  5 00:29:57 2016
+# Created: Mon Sep  5 13:19:14 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,7 +31,7 @@ class Ui_Dialog(object):
         self.BCerrar.setGeometry(QtCore.QRect(540, 440, 85, 27))
         self.BCerrar.setObjectName(_fromUtf8("BCerrar"))
         self.tabla = QtGui.QTableWidget(Dialog)
-        self.tabla.setGeometry(QtCore.QRect(10, 240, 611, 192))
+        self.tabla.setGeometry(QtCore.QRect(10, 240, 611, 161))
         self.tabla.setObjectName(_fromUtf8("tabla"))
         self.tabla.setColumnCount(0)
         self.tabla.setRowCount(0)
@@ -85,6 +85,9 @@ class Ui_Dialog(object):
         font.setPointSize(12)
         self.label_4.setFont(font)
         self.label_4.setObjectName(_fromUtf8("label_4"))
+        self.BEliminar = QtGui.QPushButton(Dialog)
+        self.BEliminar.setGeometry(QtCore.QRect(10, 410, 151, 27))
+        self.BEliminar.setObjectName(_fromUtf8("BEliminar"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -99,4 +102,5 @@ class Ui_Dialog(object):
         self.BPersonajes.setText(_translate("Dialog", "Administrar personajes...", None))
         self.BAgregar.setText(_translate("Dialog", "Agregar al elenco!", None))
         self.label_4.setText(_translate("Dialog", "Elenco", None))
+        self.BEliminar.setText(_translate("Dialog", "Quitar actor seleccionado", None))
 

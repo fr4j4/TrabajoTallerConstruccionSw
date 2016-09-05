@@ -17,17 +17,37 @@ class Elenco(QtGui.QDialog):
 		self.dbm.connect()
 		self.signals()
 		self.setWindowTitle("Administrar elencos")
+		self.ui.BPersonajes.setEnabled(False)
 	
 	def signals(self):
 		self.ui.BCerrar.clicked.connect(self.boton_listo_clicked)
 		self.ui.CPelicula.currentIndexChanged.connect(self.updateElencoList)
 		self.ui.BAgregar.clicked.connect(self.agregarAElenco)
+		self.ui.BEliminar.clicked.connect(self.eliminarAElenco)
 
 	def exec_(self):
+		self.ui.message_label.setStyleSheet("color:green;")
+		self.ui.message_label.setText("")
 		self.updateMoviesList()
 		self.updateActorsList()
 		self.updateCharactersList()
 		super(Elenco,self).exec_()
+
+	def eliminarAElenco(self):
+		row=row=self.ui.tabla.currentRow()
+		if(row>=0):
+			resp = QtGui.QMessageBox.question(self, "Eliminar actor del elenco","Desea eliminar el actor seleccionado del elenco?",QMessageBox.Yes | QMessageBox.No)
+			if (resp==QtGui.QMessageBox.Yes):
+				id=self.ui.tabla.item(row,0).text()
+				self.dbm.removeActorCharacter(id)
+				self.updateElencoList()
+				self.ui.message_label.setStyleSheet("color:blue")
+				self.ui.message_label.setText("Actor eliminado del elenco!")
+		else:
+			self.ui.message_label.setStyleSheet("color:orange")
+			self.ui.message_label.setText("Seleccione primero un item de la tabla!")
+
+			
 
 	def agregarAElenco(self):
 		self.ui.message_label.setText("")

@@ -429,6 +429,7 @@ class Main(QtGui.QMainWindow):
 			if(self.pelicula.accepted()):
 				self.dbm.updateMovie(id,self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
 				self.actualizar_tablas()
+				print self.pelicula.getData('img')
 
 	def eliminar_pelicula(self):
 		row=self.ui.tabla_peliculas.currentRow()

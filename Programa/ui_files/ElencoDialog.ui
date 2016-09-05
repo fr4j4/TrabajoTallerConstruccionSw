@@ -202,30 +202,17 @@
     <string>Elenco</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="BEliminar">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>410</y>
-     <width>121</width>
+     <width>151</width>
      <height>27</height>
     </rect>
    </property>
    <property name="text">
-    <string>Quitar seleccionado</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>410</y>
-     <width>131</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Editar seleccionado ...</string>
+    <string>Quitar actor seleccionado</string>
    </property>
   </widget>
  </widget>

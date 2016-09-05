@@ -158,7 +158,7 @@ class dbManager(object):
 		if self.connected:
 			lista=list()
 			query='SELECT actor_character.id,actors.name,characters.name,characters.desc FROM actor_character join actors join characters where movie_id= {0} and actor_id=actors.id and characters.id=character_id;'.format(id)
-			print query
+			#print query
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -283,7 +283,7 @@ class dbManager(object):
 		self.conn.commit()
 
 	def updateMovie(self,id,nombre,descr,estreno,pais,img):
-		query="UPDATE movies set name='{0}', 'desc'='{1}', country='{2}', img='{3}',estreno='{4}' WHERE id={5}".format(nombre,descr,pais,img,estreno,id)
+		query="UPDATE movies set name='{0}', desc='{1}', country='{2}', img='{3}',estreno='{4}' WHERE id={5}".format(nombre,descr.toUtf8().replace('\'','\"'),pais,img,estreno,id)
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()
@@ -314,7 +314,12 @@ class dbManager(object):
 
 	def addActorCharacter(self,a_id,c_id,m_id):
 		query="INSERT INTO actor_character (actor_id,character_id,movie_id) VALUES ({0},{1},{2});".format(a_id,c_id,m_id)		
-		print query
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def removeActorCharacter(self,id):
+		query ="DELETE FROM actor_character WHERE id={0};".format(id)
 		self.cursor.execute(query)
 		self.conn.commit()
 
