@@ -87,3 +87,9 @@ class Director(QtGui.QDialog):
 		elif(data=="img"):
 			self.ui.LImagen.setText(value)
 			self.ui.Display.setPixmap(QtGui.QPixmap((value)))
+
+	def verificaEntrada(self, data):
+		if len(data) <= 0:
+			return false
+		else:
+			return true

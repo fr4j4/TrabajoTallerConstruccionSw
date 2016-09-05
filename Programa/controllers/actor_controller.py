@@ -82,3 +82,8 @@ class Actor(QtGui.QDialog):
 			else:
 				self.ui.LGenero.setCurrentIndex(0)
 	
+	def verificaEntrada(self, data):
+		if len(data) <= 0:
+			return false
+		else:
+			return true
