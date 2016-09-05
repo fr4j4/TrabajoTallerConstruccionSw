@@ -13,7 +13,7 @@ Ejetucar programa:
 >>**Login:**
 >  Usuario: javier
 > Pass: dejademanquear
->>--
+>>________________
 >Usuario: pancho
 >Pass: shhhhh
 
