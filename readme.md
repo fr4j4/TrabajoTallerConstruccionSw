@@ -1,16 +1,20 @@
-Importante
+Tener en consideración:
 ---
 >**Librerias:**
  >-Pyside
  >-PyQt
-*****************************
->**Comandos necesarios:**
+
+Ejetucar programa:
+-----
+**Comandos necesarios:**
 >- cd TrabajoTallerConstruccionSw/Programa/
 >- python main.py
-*****************************
->**Login:**
+
+>>**Login:**
 >  Usuario: javier
 > Pass: dejademanquear
->
+>>
 >Usuario: pancho
 >Pass: shhhhh
+
+Disfrute del programa.
