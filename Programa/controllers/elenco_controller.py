@@ -3,6 +3,7 @@
 import sys
 sys.path.append("..")
 from views.elenco_ui import Ui_Dialog
+from controllers.character_controller import Character
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -16,14 +17,20 @@ class Elenco(QtGui.QDialog):
 		self.dbm=dbManager("data.db")
 		self.dbm.connect()
 		self.signals()
+		self.character=Character()
+		
 		self.setWindowTitle("Administrar elencos")
-		self.ui.BPersonajes.setEnabled(False)
+		#self.ui.BPersonajes.setEnabled(False)
 	
 	def signals(self):
 		self.ui.BCerrar.clicked.connect(self.boton_listo_clicked)
 		self.ui.CPelicula.currentIndexChanged.connect(self.updateElencoList)
 		self.ui.BAgregar.clicked.connect(self.agregarAElenco)
 		self.ui.BEliminar.clicked.connect(self.eliminarAElenco)
+		self.ui.BPersonajes.clicked.connect(self.adminPersonajes)
+
+	def adminPersonajes(self):
+		self.character.exec_()
 
 	def exec_(self):
 		self.ui.message_label.setStyleSheet("color:green;")
