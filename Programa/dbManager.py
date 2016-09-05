@@ -93,7 +93,7 @@ class dbManager(object):
 	def getActors(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM actors'
+			query='SELECT * FROM actors '+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -123,7 +123,7 @@ class dbManager(object):
 	def getDirectors(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM directors'
+			query='SELECT * FROM directors'+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -141,17 +141,33 @@ class dbManager(object):
 	def getCharacters(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM characters'
+			query='SELECT * FROM characters ORDER BY name'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['id_actor']=f[1].encode('utf-8')
-				tmp['id_pelicula']=f[2].encode('utf-8')
-				tmp['personaje']=unicode(f[3])
-				tmp['descripcion']=unicode(f[4])
+				tmp['name']=f[1].encode('utf-8')
+				tmp['desc']=f[2].encode('utf-8')
 				lista.append(tmp)#agrego el diccionario temporal a la lista
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"
+
+	def getElenco(self,id):
+		if self.connected:
+			lista=list()
+			query='SELECT actor_character.id,actors.name,characters.name,characters.desc FROM actor_character join actors join characters where movie_id= {0} and actor_id=actors.id and characters.id=character_id;'.format(id)
+			#print query
+			self.cursor.execute(query)
+			fetch=self.cursor.fetchall()
+			for f in fetch:
+				tmp={}
+				tmp['id']=f[0]
+				tmp['actor']=f[1]
+				tmp['char']=f[2]
+				tmp['desc']=f[3]
+				lista.append(tmp)
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
@@ -159,7 +175,7 @@ class dbManager(object):
 	def getMovies(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM movies'
+			query='SELECT * FROM movies '+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -197,7 +213,7 @@ class dbManager(object):
 	def getMoviesByActor(self,actor_id):#filtrar la busqueda por id del actor
 		if self.connected:
 			lista=list()
-			query='select movies.* from movies join actor_character where  movies.id=actor_character.movie_id and actor_character.actor_id='+str(actor_id)
+			query='select movies.* from movies join actor_character where  movies.id=actor_character.movie_id and actor_character.actor_id='+str(actor_id)+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -216,7 +232,7 @@ class dbManager(object):
 	def getActorsByMovie(self,movie_id):#filtrar la busqueda por id de la pelicula
 		if self.connected:
 			lista=list()
-			query='select actors.* from actors join actor_character where  actor_character.actor_id=actors.id and actor_character.movie_id='+str(movie_id)
+			query='select actors.* from actors join actor_character where  actor_character.actor_id=actors.id and actor_character.movie_id='+str(movie_id)+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -267,7 +283,7 @@ class dbManager(object):
 		self.conn.commit()
 
 	def updateMovie(self,id,nombre,descr,estreno,pais,img):
-		query="UPDATE movies set name='{0}', 'desc'='{1}', country='{2}', img='{3}',estreno='{4}' WHERE id={5}".format(nombre,descr,pais,img,estreno,id)
+		query="UPDATE movies set name='{0}', desc='{1}', country='{2}', img='{3}',estreno='{4}' WHERE id={5}".format(nombre,descr.toUtf8().replace('\'','\"'),pais,img,estreno,id)
 		#print query
 		self.cursor.execute(query)
 		self.conn.commit()
@@ -296,4 +312,23 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()	
 
+	def addActorCharacter(self,a_id,c_id,m_id):
+		query="INSERT INTO actor_character (actor_id,character_id,movie_id) VALUES ({0},{1},{2});".format(a_id,c_id,m_id)		
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
 
+	def removeActorCharacter(self,id):
+		query ="DELETE FROM actor_character WHERE id={0};".format(id)
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def checkElenco(self,a_id,c_id,m_id):#true si existe el registro, false si no existe
+		b=True 
+		query="SELECT COUNT(*) FROM actor_character WHERE actor_id={0} and character_id={1} and movie_id={2}".format(a_id,c_id,m_id)
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		#print "count: "+str(fetch[0])
+		if(fetch[0]==0):
+			b=False
+		return b

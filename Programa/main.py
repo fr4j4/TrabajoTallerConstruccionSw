@@ -9,6 +9,7 @@ from controllers.login_controller import Login
 from controllers.director_controller import Director 
 from controllers.actor_controller import Actor 
 from controllers.movie_controller import Pelicula
+from controllers.elenco_controller import Elenco
 from dbManager import dbManager
 
 class Main(QtGui.QMainWindow):
@@ -21,22 +22,24 @@ class Main(QtGui.QMainWindow):
 		self.director=Director()
 		self.actor=Actor()
 		self.pelicula=Pelicula()
+		self.elenco=Elenco()
 		self.init()
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
 		"""
 		self.login.exec_()
 		while self.dbm.checkLogin(self.login.getUser(),self.login.getPwd())==False:
+			if self.login.isAccepted()==False:
+				break
 			self.login.setErrorMessage("Datos no registrados!")
 			self.login.exec_()
+		
+		if self.login.isAccepted():
+			self.show()
+		else:
+			sys.exit(0)
 		"""
 		self.show()
 
-		"""
-		self.director.setTitle("JJJJJ")
-		self.director.putData("nombre","Pancho")
-		self.director.exec_()
-		print self.director.getData("fdef")
-		"""
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")
@@ -60,6 +63,8 @@ class Main(QtGui.QMainWindow):
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
+		self.ui.pushButton.clicked.connect(self.showElenco)
+
 		self.ui.tabla_actores.clicked.connect(self.tabla_actores_clicked)
 		self.ui.tabla_directores.clicked.connect(self.tabla_directores_clicked)
 		self.ui.tabla_peliculas.clicked.connect(self.tabla_peliculas_clicked)
@@ -75,6 +80,8 @@ class Main(QtGui.QMainWindow):
 		self.ui.BEliminar_3.clicked.connect(self.eliminar_director)
 
 		self.ui.tabla_directores.doubleClicked.connect(self.editar_director)
+		self.ui.tabla_peliculas.doubleClicked.connect(self.editar_pelicula)
+		self.ui.tabla_actores.doubleClicked.connect(self.editar_actor)
 
 		#relacionado con actores
 		self.ui.BNuevo_2.clicked.connect(self.nuevo_actor)
@@ -97,6 +104,10 @@ class Main(QtGui.QMainWindow):
 		self.actualiza_combobox_actores()
 		self.actualiza_combobox_peliculas()
 
+	def showElenco(self):
+		self.elenco.exec_()
+		self.actualizar_tablas()
+
 	def actualizar_tabla_peliculas(self,filter=False):
 		#print "actualizando tabla de peliculas!"
 
@@ -115,6 +126,7 @@ class Main(QtGui.QMainWindow):
 		else:
 			#obtengo la id del actor para hacer la búsqieda con filtro
 			actor_id=self.ui.actor_filter_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
+			#actor_id=0
 			movies=self.dbm.getMoviesByActor(actor_id)
 
 		for mov in movies:
@@ -181,10 +193,12 @@ class Main(QtGui.QMainWindow):
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 
+			
 			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
 			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
+
 	def actualizar_tabla_directores(self):
 		self.ui.director_image.setPixmap(self.default_director_pixmap)
 		self.ui.director_name_label.setText('');
@@ -414,6 +428,7 @@ class Main(QtGui.QMainWindow):
 			if(self.pelicula.accepted()):
 				self.dbm.updateMovie(id,self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
 				self.actualizar_tablas()
+				print self.pelicula.getData('img')
 
 	def eliminar_pelicula(self):
 		row=self.ui.tabla_peliculas.currentRow()

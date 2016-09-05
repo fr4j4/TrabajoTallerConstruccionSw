@@ -52,9 +52,9 @@
      <widget class="QComboBox" name="actor_filter_comboBox">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>150</x>
         <y>8</y>
-        <width>301</width>
+        <width>201</width>
         <height>22</height>
        </rect>
       </property>
@@ -97,7 +97,7 @@
      <widget class="QPushButton" name="BEliminar">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>340</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -110,7 +110,7 @@
      <widget class="QPushButton" name="BEditar">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>180</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -175,6 +175,19 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>372</x>
+        <y>6</y>
+        <width>85</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Elenco...</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="Actores">
      <attribute name="title">
@@ -205,7 +218,7 @@
      <widget class="QPushButton" name="BEliminar_2">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>340</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -218,7 +231,7 @@
      <widget class="QPushButton" name="BEditar_2">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>180</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -231,9 +244,9 @@
      <widget class="QComboBox" name="movie_filter_comboBox">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>150</x>
         <y>8</y>
-        <width>301</width>
+        <width>311</width>
         <height>22</height>
        </rect>
       </property>
@@ -324,7 +337,7 @@
      <widget class="QPushButton" name="BEditar_3">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>180</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -337,7 +350,7 @@
      <widget class="QPushButton" name="BEliminar_3">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>340</x>
         <y>300</y>
         <width>121</width>
         <height>23</height>
@@ -422,8 +435,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="ResFiles.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

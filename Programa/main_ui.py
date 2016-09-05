@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Wed Aug 31 12:05:44 2016
+# Created: Sun Sep  4 22:44:59 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.filter_actor_checkBox.setGeometry(QtCore.QRect(10, 10, 121, 17))
         self.filter_actor_checkBox.setObjectName(_fromUtf8("filter_actor_checkBox"))
         self.actor_filter_comboBox = QtGui.QComboBox(self.Peliculas)
-        self.actor_filter_comboBox.setGeometry(QtCore.QRect(160, 8, 301, 22))
+        self.actor_filter_comboBox.setGeometry(QtCore.QRect(150, 8, 201, 22))
         self.actor_filter_comboBox.setObjectName(_fromUtf8("actor_filter_comboBox"))
         self.pelicula_image = QtGui.QLabel(self.Peliculas)
         self.pelicula_image.setGeometry(QtCore.QRect(560, 40, 131, 171))
@@ -58,10 +58,10 @@ class Ui_MainWindow(object):
         self.BNuevo.setGeometry(QtCore.QRect(10, 300, 121, 23))
         self.BNuevo.setObjectName(_fromUtf8("BNuevo"))
         self.BEliminar = QtGui.QPushButton(self.Peliculas)
-        self.BEliminar.setGeometry(QtCore.QRect(270, 300, 121, 23))
+        self.BEliminar.setGeometry(QtCore.QRect(340, 300, 121, 23))
         self.BEliminar.setObjectName(_fromUtf8("BEliminar"))
         self.BEditar = QtGui.QPushButton(self.Peliculas)
-        self.BEditar.setGeometry(QtCore.QRect(140, 300, 121, 23))
+        self.BEditar.setGeometry(QtCore.QRect(180, 300, 121, 23))
         self.BEditar.setObjectName(_fromUtf8("BEditar"))
         self.tabla_peliculas = QtGui.QTableWidget(self.Peliculas)
         self.tabla_peliculas.setGeometry(QtCore.QRect(10, 40, 451, 251))
@@ -85,6 +85,9 @@ class Ui_MainWindow(object):
         self.pelicula_name_label.setText(_fromUtf8(""))
         self.pelicula_name_label.setAlignment(QtCore.Qt.AlignCenter)
         self.pelicula_name_label.setObjectName(_fromUtf8("pelicula_name_label"))
+        self.pushButton = QtGui.QPushButton(self.Peliculas)
+        self.pushButton.setGeometry(QtCore.QRect(372, 6, 85, 27))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.tabWidget.addTab(self.Peliculas, _fromUtf8(""))
         self.Actores = QtGui.QWidget()
         self.Actores.setObjectName(_fromUtf8("Actores"))
@@ -98,13 +101,13 @@ class Ui_MainWindow(object):
         self.actor_image.setScaledContents(True)
         self.actor_image.setObjectName(_fromUtf8("actor_image"))
         self.BEliminar_2 = QtGui.QPushButton(self.Actores)
-        self.BEliminar_2.setGeometry(QtCore.QRect(270, 300, 121, 23))
+        self.BEliminar_2.setGeometry(QtCore.QRect(340, 300, 121, 23))
         self.BEliminar_2.setObjectName(_fromUtf8("BEliminar_2"))
         self.BEditar_2 = QtGui.QPushButton(self.Actores)
-        self.BEditar_2.setGeometry(QtCore.QRect(140, 300, 121, 23))
+        self.BEditar_2.setGeometry(QtCore.QRect(180, 300, 121, 23))
         self.BEditar_2.setObjectName(_fromUtf8("BEditar_2"))
         self.movie_filter_comboBox = QtGui.QComboBox(self.Actores)
-        self.movie_filter_comboBox.setGeometry(QtCore.QRect(160, 8, 301, 22))
+        self.movie_filter_comboBox.setGeometry(QtCore.QRect(150, 8, 311, 22))
         self.movie_filter_comboBox.setObjectName(_fromUtf8("movie_filter_comboBox"))
         self.filter_pelicula_checkBox = QtGui.QCheckBox(self.Actores)
         self.filter_pelicula_checkBox.setGeometry(QtCore.QRect(10, 10, 131, 17))
@@ -136,10 +139,10 @@ class Ui_MainWindow(object):
         self.BNuevo_3.setGeometry(QtCore.QRect(10, 300, 121, 23))
         self.BNuevo_3.setObjectName(_fromUtf8("BNuevo_3"))
         self.BEditar_3 = QtGui.QPushButton(self.Directores)
-        self.BEditar_3.setGeometry(QtCore.QRect(140, 300, 121, 23))
+        self.BEditar_3.setGeometry(QtCore.QRect(180, 300, 121, 23))
         self.BEditar_3.setObjectName(_fromUtf8("BEditar_3"))
         self.BEliminar_3 = QtGui.QPushButton(self.Directores)
-        self.BEliminar_3.setGeometry(QtCore.QRect(270, 300, 121, 23))
+        self.BEliminar_3.setGeometry(QtCore.QRect(340, 300, 121, 23))
         self.BEliminar_3.setObjectName(_fromUtf8("BEliminar_3"))
         self.director_image = QtGui.QLabel(self.Directores)
         self.director_image.setGeometry(QtCore.QRect(540, 40, 171, 251))
@@ -184,6 +187,7 @@ class Ui_MainWindow(object):
         self.BNuevo.setText(_translate("MainWindow", "Nueva Película...", None))
         self.BEliminar.setText(_translate("MainWindow", "Eliminar Seleccionado", None))
         self.BEditar.setText(_translate("MainWindow", "Editar Seleccionado...", None))
+        self.pushButton.setText(_translate("MainWindow", "Elenco...", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Peliculas), _translate("MainWindow", "Películas", None))
         self.BEliminar_2.setText(_translate("MainWindow", "Eliminar Seleccionado", None))
         self.BEditar_2.setText(_translate("MainWindow", "Editar Seleccionado...", None))
