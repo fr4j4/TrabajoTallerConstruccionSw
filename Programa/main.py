@@ -28,19 +28,18 @@ class Main(QtGui.QMainWindow):
 		"""
 		self.login.exec_()
 		while self.dbm.checkLogin(self.login.getUser(),self.login.getPwd())==False:
+			if self.login.isAccepted()==False:
+				break
 			self.login.setErrorMessage("Datos no registrados!")
 			self.login.exec_()
+		
+		if self.login.isAccepted():
+			self.show()
+		else:
+			sys.exit(0)
 		"""
 		self.show()
 
-		
-
-		"""
-		self.director.setTitle("JJJJJ")
-		self.director.putData("nombre","Pancho")
-		self.director.exec_()
-		print self.director.getData("fdef")
-		"""
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)
 		self.dbm=dbManager("data.db")

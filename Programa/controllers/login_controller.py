@@ -11,10 +11,13 @@ class Login(QtGui.QDialog):
 		self.pwd=""
 		self.ui=Ui_Dialog()
 		self.ui.setupUi	(self)
+		self.logged=False
+		self.accepted=False
 		self.signals()
 
 	def signals(self):
 		self.ui.BIngresar.clicked.connect(self.boton_ingresar_clicked)
+		self.ui.BSalir.clicked.connect(self.quit)
 	
 	def showDialog(self):
 		self.show()
@@ -29,7 +32,15 @@ class Login(QtGui.QDialog):
 		self.ui.error_label.setText("")
 		self.ui.error_label.setText(msg)
 
+	def isAccepted(self):
+		return self.accepted
+
 	def boton_ingresar_clicked(self):
 		self.user=self.ui.LUser.text()
 		self.pwd=self.ui.LPass.text()
+		self.accepted=True
 		self.accept()#se acepta y cierra el dialogo
+	
+	def quit(self):
+		self.accepted=False
+		self.reject()

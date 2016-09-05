@@ -29,7 +29,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>210</y>
+      <y>180</y>
       <width>271</width>
       <height>85</height>
      </rect>
@@ -68,9 +68,9 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>340</y>
+      <y>310</y>
       <width>71</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -97,7 +97,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>310</y>
+      <y>280</y>
       <width>521</width>
       <height>21</height>
      </rect>
@@ -116,7 +116,7 @@ font-weight:bold;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>230</x>
       <y>0</y>
       <width>71</width>
       <height>31</height>
@@ -134,8 +134,27 @@ font-weight:bold;</string>
      <string> Login</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="BSalir">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>340</y>
+      <width>85</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Salir</string>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>LUser</tabstop>
+  <tabstop>LPass</tabstop>
+  <tabstop>BIngresar</tabstop>
+  <tabstop>BSalir</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
