@@ -81,6 +81,8 @@ class Main(QtGui.QMainWindow):
 		self.ui.BEliminar_3.clicked.connect(self.eliminar_director)
 
 		self.ui.tabla_directores.doubleClicked.connect(self.editar_director)
+		self.ui.tabla_peliculas.doubleClicked.connect(self.editar_pelicula)
+		self.ui.tabla_actores.doubleClicked.connect(self.editar_actor)
 
 		#relacionado con actores
 		self.ui.BNuevo_2.clicked.connect(self.nuevo_actor)
@@ -124,7 +126,8 @@ class Main(QtGui.QMainWindow):
 			movies=self.dbm.getMovies()
 		else:
 			#obtengo la id del actor para hacer la búsqieda con filtro
-			actor_id=self.ui.actor_filtrer_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
+			actor_id=self.ui.actor_filter_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
+			#actor_id=0
 			movies=self.dbm.getMoviesByActor(actor_id)
 
 		for mov in movies:
@@ -191,10 +194,12 @@ class Main(QtGui.QMainWindow):
 			item_genero.setFlags(QtCore.Qt.ItemIsEnabled)#hago que el item no se pueda editar
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,3,item_genero)
 
+			
 			item_numPelis=QTableWidgetItem(str(actor['num_pelis']))
 			item_numPelis.setFlags(QtCore.Qt.ItemIsEnabled)
 			self.ui.tabla_actores.setItem(self.ui.tabla_actores.rowCount()-1,4,item_numPelis)
 			
+
 	def actualizar_tabla_directores(self):
 		self.ui.director_image.setPixmap(self.default_director_pixmap)
 		self.ui.director_name_label.setText('');
