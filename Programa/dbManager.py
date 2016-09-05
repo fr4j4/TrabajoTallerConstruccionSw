@@ -154,6 +154,19 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
+	def getCharacter(self,id):
+		if self.connected:
+			query='SELECT * FROM characters WHERE id={0}'.format(id)
+			self.cursor.execute(query)
+			f=self.cursor.fetchone()
+			lista ={}
+			lista['id']=f[0]
+			lista['name']=unicode(f[1])
+			lista['desc']=unicode(f[2])
+			return lista
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"	
+
 	def getElenco(self,id):
 		if self.connected:
 			lista=list()
