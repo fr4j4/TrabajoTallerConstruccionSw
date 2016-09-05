@@ -9,6 +9,7 @@ from controllers.login_controller import Login
 from controllers.director_controller import Director 
 from controllers.actor_controller import Actor 
 from controllers.movie_controller import Pelicula
+from controllers.elenco_controller import Elenco
 from dbManager import dbManager
 
 class Main(QtGui.QMainWindow):
@@ -21,6 +22,7 @@ class Main(QtGui.QMainWindow):
 		self.director=Director()
 		self.actor=Actor()
 		self.pelicula=Pelicula()
+		self.elenco=Elenco()
 		self.init()
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
 		"""
@@ -30,6 +32,8 @@ class Main(QtGui.QMainWindow):
 			self.login.exec_()
 		"""
 		self.show()
+
+		
 
 		"""
 		self.director.setTitle("JJJJJ")
@@ -60,6 +64,8 @@ class Main(QtGui.QMainWindow):
 		self.actualizar_tablas();
 
 	def signals(self):#señales de la ventana principal
+		self.ui.pushButton.clicked.connect(self.showElenco)
+
 		self.ui.tabla_actores.clicked.connect(self.tabla_actores_clicked)
 		self.ui.tabla_directores.clicked.connect(self.tabla_directores_clicked)
 		self.ui.tabla_peliculas.clicked.connect(self.tabla_peliculas_clicked)
@@ -96,6 +102,9 @@ class Main(QtGui.QMainWindow):
 
 		self.actualiza_combobox_actores()
 		self.actualiza_combobox_peliculas()
+
+	def showElenco(self):
+		self.elenco.exec_()
 
 	def actualizar_tabla_peliculas(self,filter=False):
 		#print "actualizando tabla de peliculas!"

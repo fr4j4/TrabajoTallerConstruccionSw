@@ -93,7 +93,7 @@ class dbManager(object):
 	def getActors(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM actors'
+			query='SELECT * FROM actors '+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -123,7 +123,7 @@ class dbManager(object):
 	def getDirectors(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM directors'
+			query='SELECT * FROM directors'+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -147,19 +147,24 @@ class dbManager(object):
 			for f in fetch:
 				tmp={}#creo un diccionario temporal vacio y lo lleno 
 				tmp['id']=f[0]
-				tmp['id_actor']=f[1].encode('utf-8')
-				tmp['id_pelicula']=f[2].encode('utf-8')
-				tmp['personaje']=unicode(f[3])
-				tmp['descripcion']=unicode(f[4])
+				tmp['name']=f[1].encode('utf-8')
+				tmp['desc']=f[2].encode('utf-8')
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
 
+	def getElenco(self,id):
+		if self.connected:
+			lista=list()
+			query='SELECT * FROM actor_character where id= {0} ORDER BY name;'.format(id)
+			print query
+		else:
+			print "No puede solicitar datos si no esta conectado a una base de datos"
 	def getMovies(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM movies'
+			query='SELECT * FROM movies '+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -197,7 +202,7 @@ class dbManager(object):
 	def getMoviesByActor(self,actor_id):#filtrar la busqueda por id del actor
 		if self.connected:
 			lista=list()
-			query='select movies.* from movies join actor_character where  movies.id=actor_character.movie_id and actor_character.actor_id='+str(actor_id)
+			query='select movies.* from movies join actor_character where  movies.id=actor_character.movie_id and actor_character.actor_id='+str(actor_id)+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -216,7 +221,7 @@ class dbManager(object):
 	def getActorsByMovie(self,movie_id):#filtrar la busqueda por id de la pelicula
 		if self.connected:
 			lista=list()
-			query='select actors.* from actors join actor_character where  actor_character.actor_id=actors.id and actor_character.movie_id='+str(movie_id)
+			query='select actors.* from actors join actor_character where  actor_character.actor_id=actors.id and actor_character.movie_id='+str(movie_id)+" ORDER BY name ASC"
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -226,7 +231,7 @@ class dbManager(object):
 				tmp['birth']=f[2].encode('utf-8')
 				tmp['genre']=f[3].encode('utf-8')
 				tmp['img']=f[4].encode('utf-8')
-				tmp['num_pelis']= self.getTotalMovies(tmp['id'])
+				#tmp['num_pelis']= self.getTotalMovies(tmp['id'])
 				lista.append(tmp)#agrego el diccionario temporal a la lista
 			return lista
 		else:

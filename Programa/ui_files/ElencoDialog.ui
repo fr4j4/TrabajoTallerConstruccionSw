@@ -6,109 +6,172 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>645</width>
-    <height>325</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QPushButton" name="BCerrar">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>440</y>
+     <width>85</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>611</width>
+     <height>192</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="CPelicula">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>20</y>
+     <width>511</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>23</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Película</string>
+   </property>
+  </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
-     <width>621</width>
-     <height>301</height>
+     <y>60</y>
+     <width>611</width>
+     <height>131</height>
     </rect>
    </property>
-   <property name="title">
-    <string>Nuevo Personaje</string>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
-   <widget class="QWidget" name="formLayoutWidget_5">
+   <property name="title">
+    <string>Agregar actor al elenco</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+   </property>
+   <widget class="QComboBox" name="CPersonaje">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>130</x>
+      <y>70</y>
+      <width>241</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="CActor">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
       <y>40</y>
-      <width>591</width>
-      <height>221</height>
+      <width>241</width>
+      <height>25</height>
      </rect>
     </property>
-    <layout class="QFormLayout" name="formLayout">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-     </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_1">
-       <property name="text">
-        <string>Nombre Personaje</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="LNPersonaje"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Actor</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QComboBox" name="actor_filter_comboBox"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Descripción</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QTextEdit" name="LDescripcion"/>
-     </item>
-    </layout>
    </widget>
-   <widget class="QPushButton" name="BListo">
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>444</x>
-      <y>270</y>
+      <x>40</x>
+      <y>70</y>
       <width>71</width>
       <height>21</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Listo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BCancelar">
-    <property name="geometry">
-     <rect>
-      <x>518</x>
-      <y>270</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>Cancelar</string>
+     <string>Personaje</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="BIngresar">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>270</y>
-      <width>71</width>
+      <x>40</x>
+      <y>40</y>
+      <width>41</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Ingresar</string>
+     <string>Actor</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="BPersonajes">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>70</y>
+      <width>161</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Administrar personajes...</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Elenco</string>
+   </property>
   </widget>
  </widget>
  <resources/>
