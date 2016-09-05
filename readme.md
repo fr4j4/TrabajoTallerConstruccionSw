@@ -12,7 +12,7 @@ Ejetucar programa:
 
 >>**Login:**
 >
->  Usuario: javier
+>>  Usuario: javier
 >
 >> Pass: dejademanquear
 >>
