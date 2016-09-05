@@ -13,9 +13,10 @@ Ejetucar programa:
 >>**Login:**
 >  Usuario: javier
 >
-> Pass: dejademanquear
+>> Pass: dejademanquear
 >>
 >Usuario: pancho
->Pass: shhhhh
+>
+>>Pass: shhhhh
 
 Disfrute del programa.
