@@ -105,6 +105,7 @@ class Main(QtGui.QMainWindow):
 
 	def showElenco(self):
 		self.elenco.exec_()
+		self.actualizar_tablas()
 
 	def actualizar_tabla_peliculas(self,filter=False):
 		#print "actualizando tabla de peliculas!"
@@ -123,7 +124,7 @@ class Main(QtGui.QMainWindow):
 			movies=self.dbm.getMovies()
 		else:
 			#obtengo la id del actor para hacer la búsqieda con filtro
-			actor_id=self.ui.actor_filter_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
+			actor_id=self.ui.actor_filtrer_comboBox.itemData(self.ui.actor_filter_comboBox.currentIndex()).toPyObject()
 			movies=self.dbm.getMoviesByActor(actor_id)
 
 		for mov in movies:

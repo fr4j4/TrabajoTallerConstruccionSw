@@ -141,7 +141,7 @@ class dbManager(object):
 	def getCharacters(self):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM characters'
+			query='SELECT * FROM characters ORDER BY name'
 			self.cursor.execute(query)
 			fetch=self.cursor.fetchall()
 			for f in fetch:
@@ -157,10 +157,21 @@ class dbManager(object):
 	def getElenco(self,id):
 		if self.connected:
 			lista=list()
-			query='SELECT * FROM actor_character where id= {0} ORDER BY name;'.format(id)
+			query='SELECT actor_character.id,actors.name,characters.name,characters.desc FROM actor_character join actors join characters where movie_id= {0} and actor_id=actors.id and characters.id=character_id;'.format(id)
 			print query
+			self.cursor.execute(query)
+			fetch=self.cursor.fetchall()
+			for f in fetch:
+				tmp={}
+				tmp['id']=f[0]
+				tmp['actor']=f[1]
+				tmp['char']=f[2]
+				tmp['desc']=f[3]
+				lista.append(tmp)
+			return lista
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"
+
 	def getMovies(self):
 		if self.connected:
 			lista=list()
@@ -301,4 +312,18 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()	
 
+	def addActorCharacter(self,a_id,c_id,m_id):
+		query="INSERT INTO actor_character (actor_id,character_id,movie_id) VALUES ({0},{1},{2});".format(a_id,c_id,m_id)		
+		print query
+		self.cursor.execute(query)
+		self.conn.commit()
 
+	def checkElenco(self,a_id,c_id,m_id):#true si existe el registro, false si no existe
+		b=True 
+		query="SELECT COUNT(*) FROM actor_character WHERE actor_id={0} and character_id={1} and movie_id={2}".format(a_id,c_id,m_id)
+		self.cursor.execute(query)
+		fetch=self.cursor.fetchone()
+		#print "count: "+str(fetch[0])
+		if(fetch[0]==0):
+			b=False
+		return b

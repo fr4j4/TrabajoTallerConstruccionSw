@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ElencoDialog.ui'
+# Form implementation generated from reading ui file 'ui_files/ElencoDialog.ui'
 #
-# Created: Sun Sep  4 22:40:45 2016
+# Created: Mon Sep  5 00:29:57 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,11 +30,11 @@ class Ui_Dialog(object):
         self.BCerrar = QtGui.QPushButton(Dialog)
         self.BCerrar.setGeometry(QtCore.QRect(540, 440, 85, 27))
         self.BCerrar.setObjectName(_fromUtf8("BCerrar"))
-        self.tableWidget = QtGui.QTableWidget(Dialog)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 220, 611, 192))
-        self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
-        self.tableWidget.setColumnCount(0)
-        self.tableWidget.setRowCount(0)
+        self.tabla = QtGui.QTableWidget(Dialog)
+        self.tabla.setGeometry(QtCore.QRect(10, 240, 611, 192))
+        self.tabla.setObjectName(_fromUtf8("tabla"))
+        self.tabla.setColumnCount(0)
+        self.tabla.setRowCount(0)
         self.CPelicula = QtGui.QComboBox(Dialog)
         self.CPelicula.setGeometry(QtCore.QRect(90, 20, 511, 25))
         self.CPelicula.setObjectName(_fromUtf8("CPelicula"))
@@ -45,7 +45,7 @@ class Ui_Dialog(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.groupBox = QtGui.QGroupBox(Dialog)
-        self.groupBox.setGeometry(QtCore.QRect(10, 60, 611, 131))
+        self.groupBox.setGeometry(QtCore.QRect(10, 60, 611, 151))
         self.groupBox.setStyleSheet(_fromUtf8(""))
         self.groupBox.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
@@ -71,8 +71,16 @@ class Ui_Dialog(object):
         self.BPersonajes.setGeometry(QtCore.QRect(400, 70, 161, 27))
         self.BPersonajes.setStyleSheet(_fromUtf8(""))
         self.BPersonajes.setObjectName(_fromUtf8("BPersonajes"))
+        self.BAgregar = QtGui.QPushButton(self.groupBox)
+        self.BAgregar.setGeometry(QtCore.QRect(230, 120, 141, 27))
+        self.BAgregar.setObjectName(_fromUtf8("BAgregar"))
+        self.message_label = QtGui.QLabel(self.groupBox)
+        self.message_label.setGeometry(QtCore.QRect(160, 10, 431, 16))
+        self.message_label.setStyleSheet(_fromUtf8("color:red;"))
+        self.message_label.setText(_fromUtf8(""))
+        self.message_label.setObjectName(_fromUtf8("message_label"))
         self.label_4 = QtGui.QLabel(Dialog)
-        self.label_4.setGeometry(QtCore.QRect(10, 200, 71, 21))
+        self.label_4.setGeometry(QtCore.QRect(10, 220, 71, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_4.setFont(font)
@@ -89,5 +97,6 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Personaje", None))
         self.label.setText(_translate("Dialog", "Actor", None))
         self.BPersonajes.setText(_translate("Dialog", "Administrar personajes...", None))
+        self.BAgregar.setText(_translate("Dialog", "Agregar al elenco!", None))
         self.label_4.setText(_translate("Dialog", "Elenco", None))
 
