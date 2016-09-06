@@ -179,6 +179,11 @@ class dbManager(object):
 		self.cursor.execute(query)
 		self.conn.commit()
 
+	def deleteCharacter(self,id):
+		query ="DELETE FROM characters WHERE id ={0}".format(id)
+		self.cursor.execute(query)
+		self.conn.commit()
+
 	def getElenco(self,id):
 		if self.connected:
 			lista=list()

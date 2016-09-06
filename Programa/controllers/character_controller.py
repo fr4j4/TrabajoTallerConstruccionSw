@@ -21,6 +21,7 @@ class Character(QtGui.QDialog):
 		self.ui.BCerrar.clicked.connect(self.aceptar)
 		self.ui.comboBox.currentIndexChanged.connect(self.comboboxChanged)
 		self.ui.BGuardar.clicked.connect(self.BGuardar_clicked)
+		self.ui.BEliminar.clicked.connect(self.deleteCharacter)
 
 	def exec_(self):
 		self.updateCharactersList()
@@ -68,6 +69,13 @@ class Character(QtGui.QDialog):
 		id=self.ui.comboBox.itemData(self.ui.comboBox.currentIndex()).toPyObject()
 		self.dbm.updateCharacter(self.ui.in_nombre.text().trimmed(),self.ui.in_descripcion.toPlainText().trimmed(),id)
 
+	def deleteCharacter(self):
+		resp = QtGui.QMessageBox.question(self, "Eliminar personaje","Desea eliminar el personaje seleccionado?",QMessageBox.Yes | QMessageBox.No)
+		if (resp==QtGui.QMessageBox.Yes):
+			id=self.ui.comboBox.itemData(self.ui.comboBox.currentIndex()).toPyObject()
+			self.dbm.deleteCharacter(id)
+			self.updateCharactersList()
+			
 	def validaData(self):
 		b=True
 		if(len(self.ui.in_nombre.text().trimmed())==0 or len(self.ui.in_descripcion.toPlainText().trimmed())==0):
