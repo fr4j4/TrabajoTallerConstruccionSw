@@ -323,7 +323,7 @@ class Main(QtGui.QMainWindow):
 		self.director.setTitle("Agregar nuevo director")
 		self.director.clearData()
 		self.director.exec_()
-		if(self.director.accepted()):
+		if(self.director.accepted() and self.director.validaData()):
 			print "agregar_director"
 			fecha_defuncion=self.director.getData('fdef')
 			if(self.director.isDead()==False):
@@ -350,7 +350,7 @@ class Main(QtGui.QMainWindow):
 			if(self.director.isDead()==False):
 				defuncion=""
 
-			if(self.director.accepted()):
+			if(self.director.accepted() and self.director.validaData()):
 				self.dbm.updateDirector(id,self.director.getData('nombre'),self.director.getData('pais'),self.director.getData('fnac'),defuncion,self.director.getData('img'))
 				self.actualizar_tablas()
 
@@ -368,7 +368,7 @@ class Main(QtGui.QMainWindow):
 		self.actor.setTitle("Agregar nuevo actor")
 		self.actor.clearData()
 		self.actor.exec_()
-		if(self.actor.accepted()):
+		if(self.actor.accepted()and self.actor.validaData()):
 			self.dbm.addActor(self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('genero'),self.actor.getData('img'))
 			self.actualizar_tablas()
 	#nuevo
@@ -386,7 +386,7 @@ class Main(QtGui.QMainWindow):
 			self.actor.setTitle("Editar actor")
 			self.actor.exec_()
 
-			if(self.actor.accepted()):
+			if(self.actor.accepted()and self.actor.validaData()):
 				self.dbm.updateActor(id,self.actor.getData('nombre'),self.actor.getData('fnac'),self.actor.getData('genero'),self.actor.getData('img'))
 				self.actualizar_tablas()
 
@@ -406,7 +406,7 @@ class Main(QtGui.QMainWindow):
 		self.pelicula.setTitle("Agregar nueva pelicula")
 		self.pelicula.clearData()
 		self.pelicula.exec_()
-		if(self.pelicula.accepted()):
+		if(self.pelicula.accepted() and self.pelicula.validaData()):
 			self.dbm.addMovie(self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
 			self.actualizar_tablas()
 	
@@ -425,7 +425,7 @@ class Main(QtGui.QMainWindow):
 			self.pelicula.setTitle("Editar pelicula")
 			self.pelicula.exec_()
 
-			if(self.pelicula.accepted()):
+			if(self.pelicula.accepted() and self.pelicula.validaData()):
 				self.dbm.updateMovie(id,self.pelicula.getData('nombre'),self.pelicula.getData('descripcion'),self.pelicula.getData('estreno'),self.pelicula.getData('pais'),self.pelicula.getData('img'))
 				self.actualizar_tablas()
 				print self.pelicula.getData('img')

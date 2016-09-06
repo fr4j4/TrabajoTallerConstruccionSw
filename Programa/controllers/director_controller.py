@@ -70,7 +70,7 @@ class Director(QtGui.QDialog):
 		b=True
 		if (len(self.ui.LNombre.text().trimmed())==0 or len(self.ui.LPais.text().trimmed())==0 or len(self.ui.LNacimiento.text().trimmed())==0):
 			b = False
-		print b
+		#print b
 		return b
 		
 	def clearData(self):
