@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TrabajoTallerConstruccionSw.controllers.login_controller</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TrabajoTallerConstruccionSw-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/fr4j4/TrabajoTallerConstruccionSw">KanguroMovies</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TrabajoTallerConstruccionSw-module.html">Package&nbsp;TrabajoTallerConstruccionSw</a> ::
+        <a href="TrabajoTallerConstruccionSw.controllers-module.html">Package&nbsp;controllers</a> ::
+        Module&nbsp;login_controller
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TrabajoTallerConstruccionSw.controllers.login_controller-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="TrabajoTallerConstruccionSw.controllers.login_controller-module.html">Module TrabajoTallerConstruccionSw.controllers.login_controller</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">".."</tt><tt class="py-op">)</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package TrabajoTallerConstruccionSw.views=TrabajoTallerConstruccionSw.views-module.html"><a title="TrabajoTallerConstruccionSw.views" class="py-name" href="#" onclick="return doclink('link-0', 'views', 'link-0');">views</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module TrabajoTallerConstruccionSw.views.login_ui=TrabajoTallerConstruccionSw.views.login_ui-module.html"><a title="TrabajoTallerConstruccionSw.views.login_ui" class="py-name" href="#" onclick="return doclink('link-1', 'login_ui', 'link-1');">login_ui</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog-class.html,Class TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog-class.html,Class TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog-class.html,Class TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog-class.html,Class TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog-class.html,Class TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog=TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog-class.html"><a title="TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog" class="py-name" href="#" onclick="return doclink('link-2', 'Ui_Dialog', 'link-2');">Ui_Dialog</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QtCore</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt><tt class="py-op">.</tt><tt class="py-name">QtCore</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt><tt class="py-op">.</tt><tt class="py-name">QtGui</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="Login"></a><div id="Login-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="Login-toggle" onclick="return toggle('Login');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html">Login</a><tt class="py-op">(</tt><tt class="py-base-class">QtGui</tt><tt class="py-op">.</tt><tt class="py-base-class">QDialog</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Login-expanded"><a name="Login.__init__"></a><div id="Login.__init__-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="Login.__init__-toggle" onclick="return toggle('Login.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.__init__-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">                <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Class TrabajoTallerConstruccionSw.controllers.login_controller.Login=TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html"><a title="TrabajoTallerConstruccionSw.controllers.login_controller.Login" class="py-name" href="#" onclick="return doclink('link-3', 'Login', 'link-3');">Login</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.__init__()=TrabajoTallerConstruccionSw.controllers.actor_controller.Actor-class.html#__init__,Method TrabajoTallerConstruccionSw.controllers.character_controller.Character.__init__()=TrabajoTallerConstruccionSw.controllers.character_controller.Character-class.html#__init__,Method TrabajoTallerConstruccionSw.controllers.director_controller.Director.__init__()=TrabajoTallerConstruccionSw.controllers.director_controller.Director-class.html#__init__,Method TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco.__init__()=TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco-class.html#__init__,Method TrabajoTallerConstruccionSw.controllers.login_controller.Login.__init__()=TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#__init__,Method TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.__init__()=TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula-class.html#__init__,Method TrabajoTallerConstruccionSw.dbManager.dbManager.__init__()=TrabajoTallerConstruccionSw.dbManager.dbManager-class.html#__init__,Method TrabajoTallerConstruccionSw.main.Main.__init__()=TrabajoTallerConstruccionSw.main.Main-class.html#__init__"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.__init__
+TrabajoTallerConstruccionSw.controllers.character_controller.Character.__init__
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.__init__
+TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco.__init__
+TrabajoTallerConstruccionSw.controllers.login_controller.Login.__init__
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.__init__
+TrabajoTallerConstruccionSw.dbManager.dbManager.__init__
+TrabajoTallerConstruccionSw.main.Main.__init__" class="py-name" href="#" onclick="return doclink('link-4', '__init__', 'link-4');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">=</tt><tt class="py-string">""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt><tt class="py-op">=</tt><tt class="py-string">""</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">=</tt><tt id="link-5" class="py-name"><a title="TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog
+TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog" class="py-name" href="#" onclick="return doclink('link-5', 'Ui_Dialog', 'link-2');">Ui_Dialog</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method TrabajoTallerConstruccionSw.main_ui.Ui_MainWindow.setupUi()=TrabajoTallerConstruccionSw.main_ui.Ui_MainWindow-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog-class.html#setupUi,Method TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog.setupUi()=TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog-class.html#setupUi"><a title="TrabajoTallerConstruccionSw.main_ui.Ui_MainWindow.setupUi
+TrabajoTallerConstruccionSw.views.actor_ui.Ui_Dialog.setupUi
+TrabajoTallerConstruccionSw.views.chars_ui.Ui_Dialog.setupUi
+TrabajoTallerConstruccionSw.views.director_ui.Ui_Dialog.setupUi
+TrabajoTallerConstruccionSw.views.elenco_ui.Ui_Dialog.setupUi
+TrabajoTallerConstruccionSw.views.login_ui.Ui_Dialog.setupUi
+TrabajoTallerConstruccionSw.views.movie_ui.Ui_Dialog.setupUi" class="py-name" href="#" onclick="return doclink('link-6', 'setupUi', 'link-6');">setupUi</a></tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logged</tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.accepted()=TrabajoTallerConstruccionSw.controllers.actor_controller.Actor-class.html#accepted,Method TrabajoTallerConstruccionSw.controllers.director_controller.Director.accepted()=TrabajoTallerConstruccionSw.controllers.director_controller.Director-class.html#accepted,Method TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.accepted()=TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula-class.html#accepted"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.accepted
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.accepted
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.accepted" class="py-name" href="#" onclick="return doclink('link-7', 'accepted', 'link-7');">accepted</a></tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.signals()=TrabajoTallerConstruccionSw.controllers.actor_controller.Actor-class.html#signals,Method TrabajoTallerConstruccionSw.controllers.character_controller.Character.signals()=TrabajoTallerConstruccionSw.controllers.character_controller.Character-class.html#signals,Method TrabajoTallerConstruccionSw.controllers.director_controller.Director.signals()=TrabajoTallerConstruccionSw.controllers.director_controller.Director-class.html#signals,Method TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco.signals()=TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco-class.html#signals,Method TrabajoTallerConstruccionSw.controllers.login_controller.Login.signals()=TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#signals,Method TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.signals()=TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula-class.html#signals,Method TrabajoTallerConstruccionSw.main.Main.signals()=TrabajoTallerConstruccionSw.main.Main-class.html#signals"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.signals
+TrabajoTallerConstruccionSw.controllers.character_controller.Character.signals
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.signals
+TrabajoTallerConstruccionSw.controllers.elenco_controller.Elenco.signals
+TrabajoTallerConstruccionSw.controllers.login_controller.Login.signals
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.signals
+TrabajoTallerConstruccionSw.main.Main.signals" class="py-name" href="#" onclick="return doclink('link-8', 'signals', 'link-8');">signals</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="Login.signals"></a><div id="Login.signals-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="Login.signals-toggle" onclick="return toggle('Login.signals');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#signals">signals</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.signals-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.signals-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">BIngresar</tt><tt class="py-op">.</tt><tt class="py-name">clicked</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method TrabajoTallerConstruccionSw.dbManager.dbManager.connect()=TrabajoTallerConstruccionSw.dbManager.dbManager-class.html#connect"><a title="TrabajoTallerConstruccionSw.dbManager.dbManager.connect" class="py-name" href="#" onclick="return doclink('link-9', 'connect', 'link-9');">connect</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method TrabajoTallerConstruccionSw.controllers.login_controller.Login.boton_ingresar_clicked()=TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#boton_ingresar_clicked"><a title="TrabajoTallerConstruccionSw.controllers.login_controller.Login.boton_ingresar_clicked" class="py-name" href="#" onclick="return doclink('link-10', 'boton_ingresar_clicked', 'link-10');">boton_ingresar_clicked</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">BSalir</tt><tt class="py-op">.</tt><tt class="py-name">clicked</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="TrabajoTallerConstruccionSw.dbManager.dbManager.connect" class="py-name" href="#" onclick="return doclink('link-11', 'connect', 'link-9');">connect</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method TrabajoTallerConstruccionSw.controllers.login_controller.Login.quit()=TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#quit"><a title="TrabajoTallerConstruccionSw.controllers.login_controller.Login.quit" class="py-name" href="#" onclick="return doclink('link-12', 'quit', 'link-12');">quit</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">         </tt>
+<a name="Login.showDialog"></a><div id="Login.showDialog-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="Login.showDialog-toggle" onclick="return toggle('Login.showDialog');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#showDialog">showDialog</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.showDialog-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.showDialog-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">show</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">         </tt>
+<a name="Login.getUser"></a><div id="Login.getUser-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="Login.getUser-toggle" onclick="return toggle('Login.getUser');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#getUser">getUser</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.getUser-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.getUser-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">user</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">         </tt>
+<a name="Login.getPwd"></a><div id="Login.getPwd-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="Login.getPwd-toggle" onclick="return toggle('Login.getPwd');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#getPwd">getPwd</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.getPwd-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.getPwd-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="Login.setErrorMessage"></a><div id="Login.setErrorMessage-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="Login.setErrorMessage-toggle" onclick="return toggle('Login.setErrorMessage');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#setErrorMessage">setErrorMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">msg</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.setErrorMessage-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.setErrorMessage-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">error_label</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">error_label</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="Login.isAccepted"></a><div id="Login.isAccepted-def"><a name="L35"></a><tt class="py-lineno">35</tt> <a class="py-toggle" href="#" id="Login.isAccepted-toggle" onclick="return toggle('Login.isAccepted');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#isAccepted">isAccepted</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.isAccepted-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.isAccepted-expanded"><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.accepted
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.accepted
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.accepted" class="py-name" href="#" onclick="return doclink('link-13', 'accepted', 'link-7');">accepted</a></tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="Login.boton_ingresar_clicked"></a><div id="Login.boton_ingresar_clicked-def"><a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="Login.boton_ingresar_clicked-toggle" onclick="return toggle('Login.boton_ingresar_clicked');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#boton_ingresar_clicked">boton_ingresar_clicked</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.boton_ingresar_clicked-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.boton_ingresar_clicked-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">user</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">LUser</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ui</tt><tt class="py-op">.</tt><tt class="py-name">LPass</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.accepted
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.accepted
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.accepted" class="py-name" href="#" onclick="return doclink('link-14', 'accepted', 'link-7');">accepted</a></tt><tt class="py-op">=</tt><tt class="py-name">True</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">accept</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-comment">#se acepta y cierra el dialogo</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">         </tt>
+<a name="Login.quit"></a><div id="Login.quit-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="Login.quit-toggle" onclick="return toggle('Login.quit');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="TrabajoTallerConstruccionSw.controllers.login_controller.Login-class.html#quit">quit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Login.quit-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="Login.quit-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="TrabajoTallerConstruccionSw.controllers.actor_controller.Actor.accepted
+TrabajoTallerConstruccionSw.controllers.director_controller.Director.accepted
+TrabajoTallerConstruccionSw.controllers.movie_controller.Pelicula.accepted" class="py-name" href="#" onclick="return doclink('link-15', 'accepted', 'link-7');">accepted</a></tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">reject</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TrabajoTallerConstruccionSw-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/fr4j4/TrabajoTallerConstruccionSw">KanguroMovies</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  5 22:47:48 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
