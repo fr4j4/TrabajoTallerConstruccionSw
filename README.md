@@ -21,14 +21,14 @@
 -----------------------
 
 **Comandos necesarios:**
->- cd TrabajoTallerConstruccionSw/Programa/
+>- cd TrabajoTallerConstruccionSw
 >- python main.py
 
 >>**Login:**
 
->>  Usuario: javier
+>>  Usuario: javier ,
 >> Pass: dejademanquear
 >>
->Usuario: pancho
+>Usuario: pancho ,
 >>Pass: shhhhh
 
