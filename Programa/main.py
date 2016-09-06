@@ -25,20 +25,23 @@ class Main(QtGui.QMainWindow):
 		self.elenco=Elenco()
 		self.init()
 		#si los datos de login no corresponden, se mstrará denuevo la ventana de login
-		"""
-		self.login.exec_()
+		
+		self.login.exec_()#ejecutamos el login
+		#mientras los datos de login sean erroneos, se consultará nuevamente
 		while self.dbm.checkLogin(self.login.getUser(),self.login.getPwd())==False:
 			if self.login.isAccepted()==False:
 				break
 			self.login.setErrorMessage("Datos no registrados!")
 			self.login.exec_()
 		
+		#si se presiono "ingresar"...
 		if self.login.isAccepted():
 			self.show()
 		else:
+			#si se presiono "salir"..
 			sys.exit(0)
-		"""
-		self.show()
+		
+		
 
 
 	def init(self):#procedimientos de inicialización (ejecutar al inicio)

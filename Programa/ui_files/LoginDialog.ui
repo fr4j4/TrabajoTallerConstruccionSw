@@ -28,7 +28,7 @@
    <widget class="QWidget" name="formLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>180</y>
       <width>271</width>
       <height>85</height>
@@ -77,22 +77,6 @@
      <string>Ingresar</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>501</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>rikolin.jpg</pixmap>
-    </property>
-   </widget>
    <widget class="QLabel" name="error_label">
     <property name="geometry">
      <rect>
@@ -117,7 +101,7 @@ font-weight:bold;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>0</y>
+      <y>150</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -145,6 +129,27 @@ font-weight:bold;</string>
     </property>
     <property name="text">
      <string>Salir</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>471</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>50</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:black;</string>
+    </property>
+    <property name="text">
+     <string>KanguroMovies</string>
     </property>
    </widget>
   </widget>
