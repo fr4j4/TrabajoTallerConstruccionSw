@@ -1,5 +1,5 @@
-# TrabajoTallerConstruccionSw
-*Consideraciones*
+##Proyecto Final INFO175-08: KanguroMovies
+###Consideraciones
 -------------
 
 >**Librerías:**
@@ -17,7 +17,7 @@
 >-Para agregar un director, es necesario incluir: nombre, país y fecha de nacimiento. 
 
 
-*Ejecución del programa*
+###Ejecución del programa
 -----------------------
 
 **Comandos necesarios:**
