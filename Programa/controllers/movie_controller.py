@@ -52,6 +52,14 @@ class Pelicula(QtGui.QDialog):
 		elif(data=="img"):
 			return self.ui.LDisplay.text()		
 
+	def validaData(self):
+		b=True
+		if (len(self.ui.LNombre.text().trimmed())==0 or len(self.ui.LEstreno.text().trimmed())==0 or len(self.ui.LPais.text().trimmed())==0
+			or len(self.ui.LDescripcion.toPlainText().trimmed())==0 or len(self.ui.LDisplay.text().trimmed())==0):
+			b = False
+		#print b
+		return b
+
 	def clearData(self):
 		self.putData('nombre','')
 		self.putData('estreno','2000-01-01')

@@ -64,8 +64,15 @@ class Director(QtGui.QDialog):
 		elif(data=="fdef"):
 			return self.ui.LDefuncion.text()	
 		elif(data=="img"):
-			return self.ui.LImagen.text()		
+			return self.ui.LImagen.text()
 
+	def validaData(self):
+		b=True
+		if (len(self.ui.LNombre.text().trimmed())==0 or len(self.ui.LPais.text().trimmed())==0 or len(self.ui.LNacimiento.text().trimmed())==0):
+			b = False
+		print b
+		return b
+		
 	def clearData(self):
 		self.putData('nombre','')
 		self.putData('pais','')

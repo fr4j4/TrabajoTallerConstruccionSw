@@ -55,7 +55,14 @@ class Actor(QtGui.QDialog):
 				g="M"
 			elif self.ui.LGenero.currentIndex()==2:
 				g="F"
-			return g		
+			return g	
+
+	def validaData(self):
+		b=True
+		if (len(self.ui.LNombre.text().trimmed())==0 or len(self.ui.LFecha.text().trimmed())==0):
+			b = False
+		#print b
+		return b
 
 	def clearData(self):
 		self.putData('nombre','')
