@@ -20,6 +20,7 @@ class Character(QtGui.QDialog):
 	def signals(self):
 		self.ui.BCerrar.clicked.connect(self.aceptar)
 		self.ui.comboBox.currentIndexChanged.connect(self.comboboxChanged)
+		self.ui.BGuardar.clicked.connect(self.BGuardar_clicked)
 
 	def exec_(self):
 		self.updateCharactersList()
@@ -48,3 +49,27 @@ class Character(QtGui.QDialog):
 	def clearData(self):
 		self.ui.in_nombre.setText('')
 		self.ui.in_descripcion.setText('')
+
+	def BGuardar_clicked(self):
+		if self.validaData():
+			if(self.ui.check_new.isChecked()):
+				self.addCharacter()
+			else:
+				self.updateCharacter()
+			self.clearData()
+			self.updateCharactersList()
+
+	def addCharacter(self):
+		#print "addNew"
+		self.dbm.addCharacter(self.ui.in_nombre.text().trimmed(),self.ui.in_descripcion.toPlainText().trimmed())
+
+	def updateCharacter(self):
+		#print "update"
+		id=self.ui.comboBox.itemData(self.ui.comboBox.currentIndex()).toPyObject()
+		self.dbm.updateCharacter(self.ui.in_nombre.text().trimmed(),self.ui.in_descripcion.toPlainText().trimmed(),id)
+
+	def validaData(self):
+		b=True
+		if(len(self.ui.in_nombre.text().trimmed())==0 or len(self.ui.in_descripcion.toPlainText().trimmed())==0):
+			b=False
+		return b

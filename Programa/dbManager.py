@@ -167,6 +167,18 @@ class dbManager(object):
 		else:
 			print "No puede solicitar datos si no esta conectado a una base de datos"	
 
+	def addCharacter(self,name,desc):
+		query="INSERT INTO characters (name,desc) VALUES('{0}','{1}')".format(name.toUtf8(),desc.toUtf8())
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
+	def updateCharacter(self,name,desc,id):
+		query="UPDATE characters SET name = '{0}', desc= '{1}' WHERE id={2}".format(name.toUtf8(),desc.toUtf8(),id)
+		#print query
+		self.cursor.execute(query)
+		self.conn.commit()
+
 	def getElenco(self,id):
 		if self.connected:
 			lista=list()

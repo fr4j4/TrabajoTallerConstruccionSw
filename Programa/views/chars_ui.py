@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_files/CharacterDialog.ui'
 #
-# Created: Mon Sep  5 16:45:40 2016
+# Created: Mon Sep  5 20:51:26 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,19 +28,19 @@ class Ui_Dialog(object):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(640, 480)
         self.comboBox = QtGui.QComboBox(Dialog)
-        self.comboBox.setGeometry(QtCore.QRect(160, 40, 431, 25))
+        self.comboBox.setGeometry(QtCore.QRect(110, 40, 381, 25))
         self.comboBox.setObjectName(_fromUtf8("comboBox"))
         self.label = QtGui.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(30, 40, 111, 21))
         self.label.setObjectName(_fromUtf8("label"))
         self.in_descripcion = QtGui.QTextEdit(Dialog)
-        self.in_descripcion.setGeometry(QtCore.QRect(160, 170, 431, 161))
+        self.in_descripcion.setGeometry(QtCore.QRect(110, 170, 481, 161))
         self.in_descripcion.setObjectName(_fromUtf8("in_descripcion"))
         self.in_nombre = QtGui.QLineEdit(Dialog)
-        self.in_nombre.setGeometry(QtCore.QRect(160, 110, 431, 27))
+        self.in_nombre.setGeometry(QtCore.QRect(110, 110, 481, 27))
         self.in_nombre.setObjectName(_fromUtf8("in_nombre"))
         self.check_new = QtGui.QCheckBox(Dialog)
-        self.check_new.setGeometry(QtCore.QRect(160, 350, 141, 20))
+        self.check_new.setGeometry(QtCore.QRect(110, 350, 141, 20))
         self.check_new.setObjectName(_fromUtf8("check_new"))
         self.label_2 = QtGui.QLabel(Dialog)
         self.label_2.setGeometry(QtCore.QRect(30, 170, 71, 21))
@@ -54,16 +54,25 @@ class Ui_Dialog(object):
         self.BCerrar = QtGui.QPushButton(Dialog)
         self.BCerrar.setGeometry(QtCore.QRect(540, 440, 85, 27))
         self.BCerrar.setObjectName(_fromUtf8("BCerrar"))
+        self.message_label = QtGui.QLabel(Dialog)
+        self.message_label.setGeometry(QtCore.QRect(110, 70, 471, 31))
+        self.message_label.setStyleSheet(_fromUtf8("color:blue;"))
+        self.message_label.setText(_fromUtf8(""))
+        self.message_label.setObjectName(_fromUtf8("message_label"))
+        self.BEliminar = QtGui.QPushButton(Dialog)
+        self.BEliminar.setGeometry(QtCore.QRect(500, 40, 85, 27))
+        self.BEliminar.setObjectName(_fromUtf8("BEliminar"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
-        self.label.setText(_translate("Dialog", "Personajes", None))
+        self.label.setText(_translate("Dialog", "Personaje", None))
         self.check_new.setText(_translate("Dialog", "Guardar como nuevo", None))
         self.label_2.setText(_translate("Dialog", "Descripción", None))
         self.BGuardar.setText(_translate("Dialog", "Guardar", None))
         self.label_3.setText(_translate("Dialog", "Nombre", None))
         self.BCerrar.setText(_translate("Dialog", "Cerrar", None))
+        self.BEliminar.setText(_translate("Dialog", "Eliminar", None))
 
